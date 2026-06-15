@@ -7,84 +7,85 @@
 <style>
 :root{
   --blue:#1a4a6b;--teal:#0d6e6e;--bg:#f6f5f0;--card:#fff;
-  --border:#e0dfd8;--text:#222;--muted:#666;
+  --border:#e0dfd8;--text:#222;--muted:#555;
   --warn-bg:#fff8e6;--warn-b:#f0c040;
   --tip-bg:#e8f4f8;--tip-b:#9fd5e8;
   --green:#2e8b57;--red:#c0392b;--gold:#b8860b;
+  font-size:18px;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);padding-bottom:3rem}
+body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);padding-bottom:3rem;font-size:17px;line-height:1.8}
 .header{background:linear-gradient(135deg,#1a4a6b,#0d6e6e);color:#fff;padding:1.2rem 1rem 1rem;text-align:center}
-.header h1{font-size:clamp(17px,5vw,22px);font-weight:700;margin-bottom:4px}
-.header p{font-size:clamp(11px,3vw,13px);opacity:.85;line-height:1.5}
-.tab-bar{position:sticky;top:0;z-index:100;background:#e8e7e0;padding:5px;display:flex;gap:3px;overflow-x:auto;scrollbar-width:none}
+.header h1{font-size:clamp(22px,6vw,28px);font-weight:700;margin-bottom:4px}
+.header p{font-size:clamp(15px,4vw,17px);opacity:.85;line-height:1.7}
+.tab-bar{position:sticky;top:0;z-index:100;background:#e8e7e0;padding:7px;display:flex;gap:3px;overflow-x:auto;scrollbar-width:none}
 .tab-bar::-webkit-scrollbar{display:none}
-.tab{flex-shrink:0;padding:6px 10px;border-radius:7px;border:none;cursor:pointer;font-size:clamp(11px,3vw,12px);font-weight:600;white-space:nowrap;background:transparent;color:#555;transition:all .15s}
+.tab{flex-shrink:0;padding:9px 14px;border-radius:8px;border:none;cursor:pointer;font-size:16px;font-weight:600;white-space:nowrap;background:transparent;color:#555;transition:all .15s}
 .tab.active{background:#fff;color:var(--blue);box-shadow:0 1px 4px rgba(0,0,0,.15)}
 .panel{display:none;padding:9px;max-width:720px;margin:0 auto}
 .panel.active{display:block}
-.day-header{background:var(--card);border-left:4px solid var(--blue);border-radius:12px;padding:.85rem 1rem;margin-bottom:9px;box-shadow:0 1px 4px rgba(0,0,0,.07)}
-.day-badge{display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:5px}
-.day-title{font-size:clamp(14px,4vw,16px);font-weight:700;line-height:1.4;margin-bottom:3px}
-.day-meta{font-size:11px;color:var(--muted);line-height:1.5}
-.section{background:var(--card);border:.5px solid var(--border);border-radius:12px;padding:.85rem 1rem;margin-bottom:9px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.section-title{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:9px;display:flex;align-items:center;gap:5px}
+.day-header{background:var(--card);border-left:4px solid var(--blue);border-radius:12px;padding:1rem 1.1rem;margin-bottom:9px;box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.day-badge{display:inline-block;background:var(--blue);color:#fff;font-size:16px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:5px}
+.day-title{font-size:clamp(19px,5vw,22px);font-weight:700;line-height:1.4;margin-bottom:3px}
+.day-meta{font-size:14px;color:var(--muted);line-height:1.7}
+.section{background:var(--card);border:.5px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:9px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.section-title{font-size:16px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:9px;display:flex;align-items:center;gap:5px}
 .step{display:flex;gap:9px;margin-bottom:8px;padding-bottom:8px;border-bottom:.5px solid #f0f0ea}
 .step:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.step-num{min-width:21px;height:21px;background:var(--blue);color:#fff;border-radius:50%;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
-.step-content{font-size:clamp(12px,3.5vw,13px);line-height:1.75;flex:1}
+.step-num{min-width:26px;height:26px;background:var(--blue);color:#fff;border-radius:50%;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-content{font-size:17px;line-height:1.75;flex:1}
 .step-content strong{color:var(--blue);font-weight:700}
 .hl{background:#fff3cd;padding:1px 4px;border-radius:3px;font-weight:600}
-.warn-box{background:var(--warn-bg);border:.5px solid var(--warn-b);border-radius:8px;padding:9px 11px;margin:6px 0;font-size:clamp(11px,3vw,12px);color:#7a5500;line-height:1.7}
-.tip-box{background:var(--tip-bg);border:.5px solid var(--tip-b);border-radius:8px;padding:9px 11px;margin:6px 0;font-size:clamp(11px,3vw,12px);color:#1a4a6b;line-height:1.7}
-.green-box{background:#edfaf4;border:.5px solid #2e8b57;border-radius:8px;padding:9px 11px;margin:6px 0;font-size:clamp(11px,3vw,12px);color:#1a5c35;line-height:1.7}
-.gold-box{background:#fdf6e3;border:.5px solid var(--gold);border-radius:8px;padding:9px 11px;margin:6px 0;font-size:clamp(11px,3vw,12px);color:#7a5000;line-height:1.7}
+.warn-box{background:var(--warn-bg);border:.5px solid var(--warn-b);border-radius:10px;padding:12px 14px;margin:8px 0;font-size:16px;color:#7a5500;line-height:1.7}
+.tip-box{background:var(--tip-bg);border:.5px solid var(--tip-b);border-radius:10px;padding:12px 14px;margin:8px 0;font-size:16px;color:#1a4a6b;line-height:1.7}
+.green-box{background:#edfaf4;border:.5px solid #2e8b57;border-radius:10px;padding:12px 14px;margin:8px 0;font-size:16px;color:#1a5c35;line-height:1.7}
+.gold-box{background:#fdf6e3;border:.5px solid var(--gold);border-radius:10px;padding:12px 14px;margin:8px 0;font-size:16px;color:#7a5000;line-height:1.7}
 .meal-row{display:flex;gap:8px;margin-bottom:8px;padding-bottom:8px;border-bottom:.5px solid #f0f0ea}
 .meal-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.meal-tag{flex-shrink:0;font-size:10px;font-weight:700;padding:2px 7px;border-radius:9px;margin-top:2px;height:fit-content}
+.meal-tag{flex-shrink:0;font-size:16px;font-weight:700;padding:2px 7px;border-radius:9px;margin-top:2px;height:fit-content}
 .meal-tag.lunch{background:#fef3c7;color:#92400e}
 .meal-tag.dinner{background:#fee2e2;color:#991b1b}
-.meal-name{font-size:clamp(12px,3.5vw,13px);font-weight:700;margin-bottom:2px}
-.meal-desc{font-size:11px;color:var(--muted);line-height:1.55}
+.meal-name{font-size:17px;font-weight:700;margin-bottom:3px}
+.meal-desc{font-size:14px;color:var(--muted);line-height:1.7}
 .jp-phrase{background:#f8f8f5;border:.5px solid var(--border);border-radius:8px;padding:8px 10px;margin:4px 0;display:flex;align-items:flex-start;gap:8px}
 .jp-text{flex:1;min-width:0}
-.jp-label{font-size:10px;color:#999;margin-bottom:1px}
-.jp-main{font-size:clamp(13px,3.5vw,15px);line-height:1.5;font-weight:500;word-break:break-all}
-.jp-reading{font-size:10px;color:var(--muted);margin-top:2px;line-height:1.4}
-.speak-btn{flex-shrink:0;background:#fff;border:1.5px solid var(--blue);color:var(--blue);border-radius:7px;padding:5px 9px;cursor:pointer;font-size:11px;font-weight:700;transition:all .15s;white-space:nowrap}
+.jp-label{font-size:16px;color:#999;margin-bottom:1px}
+.jp-main{font-size:clamp(18px,5vw,20px);line-height:1.5;font-weight:500;word-break:break-all}
+.jp-reading{font-size:16px;color:var(--muted);margin-top:2px;line-height:1.4}
+.speak-btn{flex-shrink:0;background:#fff;border:2px solid var(--blue);color:var(--blue);border-radius:8px;padding:8px 14px;cursor:pointer;font-size:15px;font-weight:700;transition:all .15s;white-space:nowrap}
 .speak-btn:hover,.speak-btn:active{background:var(--blue);color:#fff}
 .speak-btn.playing{background:#0d6e6e;border-color:#0d6e6e;color:#fff}
 .grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:7px}
 .card{background:#f8f8f5;border:.5px solid var(--border);border-radius:8px;padding:8px 9px}
-.card-name{font-size:clamp(12px,3vw,13px);font-weight:700;color:#0d6e6e;margin-bottom:3px}
-.card-desc{font-size:11px;color:var(--muted);line-height:1.5}
-.route-box{background:#f0f4ff;border:.5px solid #b0c0e0;border-radius:8px;padding:9px 11px;margin:6px 0;font-size:clamp(11px,3vw,12px);line-height:1.8}
+.card-name{font-size:16px;font-weight:700;color:#0d6e6e;margin-bottom:3px}
+.card-desc{font-size:14px;color:var(--muted);line-height:1.7}
+.route-box{background:#f0f4ff;border:.5px solid #b0c0e0;border-radius:8px;padding:12px 14px;margin:8px 0;font-size:16px;line-height:1.8}
 .route-box strong{color:var(--blue)}
-.map-btn{display:block;background:var(--blue);color:#fff;text-align:center;padding:10px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:700;margin:6px 0}
+.map-btn{display:block;background:var(--blue);color:#fff;text-align:center;padding:14px;border-radius:10px;text-decoration:none;font-size:17px;font-weight:700;margin:8px 0}
 .map-btn:hover{background:#0d6e6e}
-.map-btn span{font-size:11px;font-weight:400;opacity:.85;display:block;margin-top:1px}
+.map-btn span{font-size:15px;font-weight:400;opacity:.85;display:block;margin-top:2px}
 .table-wrap{overflow-x:auto;border-radius:8px;border:.5px solid var(--border)}
-.rt{width:100%;border-collapse:collapse;font-size:clamp(11px,3vw,12px)}
-.rt th{background:#f0f0ea;padding:6px 8px;text-align:left;font-weight:700;font-size:10px;color:var(--muted);border-bottom:1px solid var(--border)}
-.rt td{padding:6px 8px;border-bottom:.5px solid #f0f0ea;vertical-align:top;line-height:1.6}
+.rt{width:100%;border-collapse:collapse;font-size:16px}
+.rt th{background:#f0f0ea;padding:9px 10px;text-align:left;font-weight:700;font-size:16px;color:var(--muted);border-bottom:1px solid var(--border)}
+.rt td{padding:9px 10px;border-bottom:.5px solid #f0f0ea;vertical-align:top;line-height:1.75}
 .rt tr:last-child td{border-bottom:none}
 .best{color:var(--green);font-weight:700}
 .price{color:#c0392b;font-weight:700}
 .free{color:var(--green);font-weight:700}
-.budget-row{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:.5px solid #f0f0ea;font-size:clamp(12px,3vw,13px)}
+.budget-row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:.5px solid #f0f0ea;font-size:17px}
 .budget-row:last-child{border-bottom:none}
 .budget-label{flex:1;color:var(--text)}
-.budget-label .sub{font-size:11px;color:var(--muted);display:block;margin-top:1px}
+.budget-label .sub{font-size:15px;color:var(--muted);display:block;margin-top:1px}
 .budget-yen{font-weight:700;color:#c0392b;white-space:nowrap;margin-left:8px}
 .budget-yen.free{color:var(--green)}
 .budget-yen.low{color:#e67e22}
 .budget-total{background:linear-gradient(135deg,#1a4a6b,#0d6e6e);color:#fff;border-radius:10px;padding:12px 14px;margin-top:8px;display:flex;justify-content:space-between;align-items:center}
-.budget-total-label{font-size:13px;font-weight:600}
-.budget-total-amount{font-size:20px;font-weight:700}
-.budget-total-sub{font-size:11px;opacity:.8;margin-top:2px}
+.budget-total-label{font-size:17px;font-weight:600}
+.budget-total-amount{font-size:24px;font-weight:700}
+.budget-total-sub{font-size:14px;opacity:.8;margin-top:2px}
 .summary-card{background:var(--card);border:.5px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:9px}
-.summary-day{font-size:12px;font-weight:700;color:var(--blue);margin-bottom:6px;padding-bottom:6px;border-bottom:.5px solid #f0f0ea}
-.note-tag{display:inline-block;background:#e8f4f8;color:#1a4a6b;font-size:10px;font-weight:700;padding:1px 6px;border-radius:8px;margin-left:4px}
+.summary-day{font-size:17px;font-weight:700;color:var(--blue);margin-bottom:6px;padding-bottom:6px;border-bottom:.5px solid #f0f0ea}
+.note-tag{display:inline-block;background:#e8f4f8;color:#1a4a6b;font-size:16px;font-weight:700;padding:1px 6px;border-radius:8px;margin-left:4px}
 </style>
 </head>
 <body>
@@ -247,7 +248,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;back
       </div>
       <div style="text-align:right">
         <div class="budget-total-amount">¥87,000〜</div>
-        <div style="font-size:11px;opacity:.8">≈ NT$19,000〜</div>
+        <div style="font-size:14px;opacity:.8">≈ NT$19,000〜</div>
       </div>
     </div>
     <div class="tip-box" style="margin-top:8px">💡 <strong>平均每天花費（單人，不含住宿採購）：約 ¥6,500〜¥8,000</strong><br>若加上住宿（5晚，單人分攤）：約再加 <strong>¥30,000〜¥50,000</strong></div>
@@ -354,6 +355,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;back
   </div>
 </div>
 
+
 <!-- ===== INSURANCE ===== -->
 <div id="insurance" class="panel">
   <div class="day-header">
@@ -424,8 +426,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;back
   <div class="day-header"><div class="day-badge">Day 1 ｜ 6/16 (二)</div><div class="day-title">✈️ 抵達札幌 → 衣服鞋子藥妝採買 → 螃蟹晚餐</div><div class="day-meta">單人費用（不含採購）：約 ¥8,650</div></div>
   <div class="section">
     <div class="section-title">🗺️ Google Maps</div>
-    <a class="map-btn" href="https://maps.app.goo.gl/xBKdCkPHt5h4UJAf6" target="_blank">📍 新千歲機場 → JR 札幌站<span>點此開啟 Google Maps</span></a>
-    <a class="map-btn" href="https://maps.app.goo.gl/7gBQqczWxYGCLmVq6" target="_blank">📍 札幌狸小路商店街<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://www.google.com/maps/search/新千歲機場+新千歳空港" target="_blank">📍 新千歲機場 → JR 札幌站<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://www.google.com/maps/search/狸小路商店街+札幌" target="_blank">📍 札幌狸小路商店街<span>點此開啟 Google Maps</span></a>
   </div>
   <div class="section">
     <div class="section-title">📍 行程 + 費用（單人）</div>
@@ -435,6 +437,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;back
     <div class="route-box">🚉 <strong>容易走錯</strong>：JR 站和地鐵站是分開的，出 JR 閘門後要<strong>繼續往南走</strong>找「地下鉄南北線」入口。</div>
     <div class="warn-box">💉 入境第一天就要投保「TOKIO OMOTENASHI POLICY」！每人¥1,500，入境後5天內辦理。</div>
   </div>
+
+  <div class="section">
+    <div class="section-title">🎫 JR 快速エアポート 買票步驟（機場→札幌，¥1,230）</div>
+    <div class="tip-box">📍 <strong>售票機位置</strong>：出海關後跟著藍色「JR線」指標走，搭手扶梯下到 B1，右手邊就是一排<strong>綠色或藍色自動售票機</strong>。</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content">走到售票機前，找螢幕右上角「<strong>言語切換 / Language</strong>」，點「<strong>繁體中文</strong>」，整個畫面就會變中文！</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content">點螢幕左側「<strong>片道（單程）</strong>」→ 右側金額表找「<strong>¥1,230（札幌）</strong>」點它。</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content">確認「<strong>おとな（大人）1枚</strong>」，投入現金或刷卡，拿好票券。</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content">找「<strong>改札口（剪票口）</strong>」把票插入閘機，閘門打開後從前方取回票（<strong>票要留著，下車要用！</strong>）。</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-content">找「<strong>5番線・6番線（5、6號月台）</strong>」往下走，搭「<strong>快速エアポート 往札幌・小樽</strong>」的車，車程 37 分鐘。</div></div>
+    <div class="warn-box">⚠️ 到站出閘機時把票插入，<strong>這次閘機會直接吃掉票</strong>不還你，正常的！<br>💡 更省事：在售票機旁找「<strong>Kitaca カード（Kitaca 卡）</strong>」販賣機買一張交通 IC 卡（¥2,000，含¥500 押金），之後地鐵、JR 都直接感應，不用每次買票。</div>
+    <div class="section-title" style="margin-top:14px">🚇 地鐵買票步驟（大通站下車，¥210）</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content">在 JR 札幌站出閘後，跟著黃色「<strong>地下鉄（地鐵）</strong>」指標走約 5 分鐘，找到<strong>橘色南北線</strong>入口旁的<strong>白色自動售票機</strong>。</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content">切換中文後，看螢幕上方的路線地圖，找「<strong>大通（¥210）</strong>」點它，投幣拿票，插入閘機進站。</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content">搭「<strong>南北線（綠色）往真駒內（まこまない）</strong>」方向，坐 2 站到「<strong>大通</strong>」站下車。出站找「<strong>豊水薄野 7 番出口</strong>」。</div></div>
+  </div>
+
   <div class="section">
     <div class="section-title">🍽️ 今日餐點（單人）</div>
     <div class="meal-row"><div class="meal-tag lunch">午餐</div><div><div class="meal-name">🍜 機場美食街（B1）</div><div class="meal-desc">拉麵、丼飯｜單人約 <span class="price">¥1,000</span></div></div></div>
@@ -453,8 +471,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;back
   <div class="day-header"><div class="day-badge">Day 2 ｜ 6/17 (三)</div><div class="day-title">🎓 北大博物館 → 霜淇淋 → 白色戀人公園 → 狸小路</div><div class="day-meta">單人費用（不含採購）：約 ¥5,880</div></div>
   <div class="section">
     <div class="section-title">🗺️ Google Maps</div>
-    <a class="map-btn" href="https://maps.app.goo.gl/WkPFNEzQxhUmgAJa7" target="_blank">📍 北海道大學綜合博物館<span>點此開啟 Google Maps</span></a>
-    <a class="map-btn" href="https://maps.app.goo.gl/i2V5xY1VEg4V3CZKA" target="_blank">📍 白色戀人公園<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://www.google.com/maps/search/北海道大学総合博物館" target="_blank">📍 北海道大學綜合博物館<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://www.google.com/maps/search/白い恋人パーク+札幌" target="_blank">📍 白色戀人公園<span>點此開啟 Google Maps</span></a>
   </div>
   <div class="section">
     <div class="section-title">📍 行程 + 費用（單人）</div>
@@ -463,6 +481,27 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;back
     <div class="step"><div class="step-num">3</div><div class="step-content">下午在大通站換東西線至宮之澤，步行至<strong>白色戀人公園</strong> <span class="price">¥800</span>。回程在<strong>宮之澤西友超市</strong>採購（最便宜！）。</div></div>
     <div class="route-box">🚉 <strong>容易走錯</strong>：目的地是「北12条站」，下午去白色戀人需在「大通站」換乘東西線。</div>
   </div>
+
+  <div class="section">
+    <div class="section-title">🎫 地鐵一日券 買票步驟（¥830，今天超值！）</div>
+    <div class="tip-box">📍 今天搭地鐵次數多（北大→大通→宮之澤→狸小路），<strong>買¥830一日券搭超過4次就回本</strong>！</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content">到任一地鐵站售票機，螢幕找「<strong>企画乗車券</strong>」或「<strong>おトクなきっぷ</strong>」按鈕（通常在主畫面<strong>左下角</strong>），點它。</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content">畫面出現票種選擇，找「<strong>地下鉄専用1日乗車券 ¥830</strong>」，點選。</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><span style="color:#c0392b;font-weight:700">投入現金！⚠️ 一日券不能刷卡！</span>，機器吐出一張比一般票稍寬的白色票券，拿好。</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content">每次進出閘機都把這張票插入，閘機會印上時間後<strong>把票還給你</strong>，拿回繼續用，一整天不限次數！</div></div>
+    <div class="warn-box">⚠️ 一日券從<strong>第一次插入當天</strong>起算有效。建議早上第一次搭車才開始用。</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🎫 白色戀人公園（付費區）買票步驟（¥800）</div>
+    <div class="tip-box">📍 <strong>售票處位置</strong>：進公園大門後，往前走到<strong>都鐸式磚紅色城堡正面入口</strong>左側，找「<strong>入場券売り場（售票處）</strong>」玻璃窗口，人工售票。</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content">免費區（玫瑰花園、伴手禮店）<strong>直接進不需票</strong>，要進城堡工廠展覽區才需要買票。</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content">到城堡正面左側「<strong>チケットカウンター / Ticket Counter</strong>」窗口，伸出手指比「<strong>2</strong>」說「<strong>にまい（2張）</strong>」即可。</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content">付款¥800/人，拿到票券後往右走進城堡，在入場口把票交給工作人員掃描入場。</div></div>
+    <div class="warn-box">⚠️ <strong>最後購票時間 16:30，景點 17:30 關閉</strong>，記得不要太晚到！<br>⚠️ 2026/7/29 前生產線裝修，玻璃觀賞生產線暫停，其他展覽照常。</div>
+    <div class="tip-box">💡 <strong>DIY 巧克力體驗</strong>需另外預約（¥1,500〜¥2,000），假日常額滿，建議提前 3-7 天在<strong>白色戀人公園官網</strong>（shiroi-koibito.jp）點「<strong>体験予約</strong>」線上預約。</div>
+  </div>
+
   <div class="section">
     <div class="section-title">🍽️ 今日餐點（單人）</div>
     <div class="meal-row"><div class="meal-tag lunch">午餐</div><div><div class="meal-name">🍱 北大生協食堂</div><div class="meal-desc">學生食堂，道産定食體驗｜單人約 <span class="price">¥900</span></div></div></div>
@@ -480,8 +519,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;back
   <div class="day-header"><div class="day-badge">Day 3 ｜ 6/18 (四)</div><div class="day-title">🚗 10:00 取車 → 四季彩の丘（美瑛） → 富良野</div><div class="day-meta">單人費用：約 ¥9,650〜（租車費已平分，不含住宿）</div></div>
   <div class="section">
     <div class="section-title">🗺️ Google Maps</div>
-    <a class="map-btn" href="https://maps.app.goo.gl/uqSb8PV3EoFLhqbP9" target="_blank">📍 Times 租車（創世廣場 B2）<span>點此開啟 Google Maps</span></a>
-    <a class="map-btn" href="https://maps.app.goo.gl/L5DnT3GnFyEG5oNq9" target="_blank">📍 四季彩の丘（美瑛）<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://www.google.com/maps/search/タイムズカー+札幌創世スクエア" target="_blank">📍 Times 租車（創世廣場 B2）<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://www.google.com/maps/search/四季彩の丘+美瑛" target="_blank">📍 四季彩の丘（美瑛）<span>點此開啟 Google Maps</span></a>
   </div>
   <div class="section">
     <div class="section-title">📍 行程 + 費用（單人）</div>
@@ -507,8 +546,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;back
   <div class="day-header"><div class="day-badge">Day 4 ｜ 6/19 (五)</div><div class="day-title">🪻 富田農場 → 藍池 + 白鬚瀑布 → 生牛肉丼</div><div class="day-meta">單人費用：約 ¥9,280〜（租車費已平分，不含住宿）</div></div>
   <div class="section">
     <div class="section-title">🗺️ Google Maps</div>
-    <a class="map-btn" href="https://maps.app.goo.gl/FarmTomita" target="_blank">📍 富田農場（Farm Tomita）<span>點此開啟 Google Maps</span></a>
-    <a class="map-btn" href="https://maps.app.goo.gl/BlueIkePond" target="_blank">📍 白金青い池（藍池）<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://www.google.com/maps/search/ファーム富田+富良野" target="_blank">📍 富田農場（Farm Tomita）<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://www.google.com/maps/search/白金青い池+美瑛" target="_blank">📍 白金青い池（藍池）<span>點此開啟 Google Maps</span></a>
   </div>
   <div class="section">
     <div class="section-title">📍 行程 + 費用（單人）</div>
@@ -532,7 +571,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;back
   <div class="day-header"><div class="day-badge">Day 5 ｜ 6/20 (六)</div><div class="day-title">🌋 南下洞爺湖 → 筒倉展望台 → 乃之風 Buffet + 煙火</div><div class="day-meta">單人費用：約 ¥8,785〜（租車費已平分，不含住宿）</div></div>
   <div class="section">
     <div class="section-title">🗺️ Google Maps</div>
-    <a class="map-btn" href="https://maps.app.goo.gl/ToyaLakeObs" target="_blank">📍 筒倉展望台（サイロ展望台）<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://www.google.com/maps/search/サイロ展望台+洞爺湖" target="_blank">📍 筒倉展望台（サイロ展望台）<span>點此開啟 Google Maps</span></a>
   </div>
   <div class="section">
     <div class="section-title">📍 行程 + 費用（單人）</div>
@@ -541,6 +580,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;back
     <div class="step"><div class="step-num">3</div><div class="step-content">入住 TOYA 乃之風，停車免費。煙火每晚 20:45，<span class="free">免費</span>從飯店欣賞！</div></div>
     <div class="route-box">⚠️ <strong>容易走錯</strong>：出「虻田洞爺湖IC」後<strong>右轉上山</strong>去展望台，不是往市區（左轉）！</div>
   </div>
+
+  <div class="section">
+    <div class="section-title">🎫 筒倉展望台 買票步驟（¥900）</div>
+    <div class="tip-box">📍 <strong>售票處位置</strong>：停好車後步行進入那棟巨大<strong>木造白色建築「サイロ展望台」</strong>，走進一樓後<strong>右手邊</strong>就是人工售票窗口，有中英文標示。</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content">停車後往建築物正面走進去，一樓右側看到「<strong>展望台 入場券 ¥900</strong>」的招牌和售票窗口。</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content">伸出手指比「<strong>2</strong>」，或說「<strong>ふたり（2人）</strong>」，付款¥900×2=¥1,800，拿到票券。</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content">持票走向售票窗口旁的電梯，把票交給工作人員撕票後，搭電梯到頂樓展望台，洞爺湖全景一覽無遺！</div></div>
+    <div class="tip-box">💡 一樓有觀光商店可以買洞爺湖伴手禮、展望台旁有餐廳可以吃午餐，不趕時間可以好好逛逛。</div>
+  </div>
+
   <div class="section">
     <div class="section-title">🍽️ 今日餐點（單人）</div>
     <div class="meal-row"><div class="meal-tag lunch">午餐</div><div><div class="meal-name">🏪 高速服務區（SA）</div><div class="meal-desc">拉麵、丼飯｜單人約 <span class="price">¥1,000</span></div></div></div>
@@ -557,8 +606,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;back
   <div class="day-header"><div class="day-badge">Day 6 ｜ 6/21 (日)</div><div class="day-title">🌊 羊蹄山景觀公路 → 小樽運河 → 壽司屋通</div><div class="day-meta">單人費用：約 ¥11,295〜（租車費已平分，不含住宿）</div></div>
   <div class="section">
     <div class="section-title">🗺️ Google Maps</div>
-    <a class="map-btn" href="https://maps.app.goo.gl/OtaruCanal" target="_blank">📍 小樽運河中央橋<span>點此開啟 Google Maps</span></a>
-    <a class="map-btn" href="https://maps.app.goo.gl/OtaruSushi" target="_blank">📍 壽司屋通（寿司屋通り）<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://www.google.com/maps/search/小樽運河+中央橋" target="_blank">📍 小樽運河中央橋<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://www.google.com/maps/search/寿司屋通り+小樽" target="_blank">📍 壽司屋通（寿司屋通り）<span>點此開啟 Google Maps</span></a>
   </div>
   <div class="section">
     <div class="section-title">📍 行程 + 費用（單人）</div>
@@ -584,7 +633,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;back
   <div class="day-header"><div class="day-badge">Day 7 ｜ 6/22 (一)</div><div class="day-title">🔑 還車 → 北海道神宮 → ANA 皇冠 → 大丸血拼</div><div class="day-meta">單人費用：約 ¥11,230〜（租車費已平分，不含採購）</div></div>
   <div class="section">
     <div class="section-title">🗺️ Google Maps</div>
-    <a class="map-btn" href="https://maps.app.goo.gl/HokkaidoJingu" target="_blank">📍 北海道神宮<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://www.google.com/maps/search/北海道神宮+札幌" target="_blank">📍 北海道神宮<span>點此開啟 Google Maps</span></a>
   </div>
   <div class="section">
     <div class="section-title">📍 行程 + 費用（單人）</div>
@@ -615,6 +664,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;back
     <div class="step"><div class="step-num">2</div><div class="step-content">狸小路藥妝攻略：<strong>SUNDRUG → 松本清 → 大国藥妝 → 札幌藥妝 → MEGA 唐吉訶德（24h）</strong>。藥妝掃貨估 <span class="price">¥5,000〜¥25,000/人</span>（視個人）。</div></div>
     <div class="step"><div class="step-num">3</div><div class="step-content">採購後攔計程車送戰利品回飯店，2人平分 <span class="price">¥500/人</span>。</div></div>
   </div>
+
+  <div class="section">
+    <div class="section-title">🎫 札幌電視塔展望台 買票步驟（¥800）</div>
+    <div class="tip-box">📍 <strong>售票處位置</strong>：電視塔在大通公園東端。進入電視塔大樓後，搭電梯到「<strong>3 樓（3F）</strong>」，出來後<strong>左手邊</strong>就是售票窗口與自動售票機。</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content">從地鐵大通站出來，找「<strong>27 番出口（27 號出口）</strong>」，步行約 5 分鐘看到高高的電視塔，從一樓正門進入。</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content">搭一樓電梯按「<strong>3</strong>」到 3 樓，出電梯後看到「<strong>展望台入口 ↑</strong>」的指標，左手邊就是售票區。</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>自動售票機</strong>：螢幕點「<strong>おとな 大人 ¥800</strong>」→ 選張數 → 投幣或刷卡 → 拿票。</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content">持票走到旁邊展望台入口，工作人員掃描票券後，搭乘「<strong>全透明電梯</strong>」60 秒直達 90 公尺高展望台！</div></div>
+    <div class="green-box">💡 <strong>提前在 KKday 或 Klook 買更便宜！</strong><br>搜尋「札幌電視塔」可找到優惠票，有時比現場便宜 ¥100〜¥200，且<strong>不用排隊</strong>，出示手機 QR Code 給工作人員掃描直接入場！出發前用手機買好最省事。</div>
+    <div class="tip-box">💡 3F 售票處還有「<strong>電視塔 + 時計台共通券</strong>」套票，可節省費用，有興趣可詢問工作人員。</div>
+  </div>
+
   <div class="section">
     <div class="section-title">🍽️ 今日餐點（單人）</div>
     <div class="meal-row"><div class="meal-tag lunch">午餐</div><div><div class="meal-name">🍜 拉麵共和國（JR塔10F）</div><div class="meal-desc">北海道8家人氣拉麵｜單人約 <span class="price">¥1,500</span></div></div></div>
@@ -635,6 +696,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;back
     <div class="step"><div class="step-num">1</div><div class="step-content">計程車至二條市場，2人平分 <span class="price">¥400/人</span>。</div></div>
     <div class="step"><div class="step-num">2</div><div class="step-content">早午餐：<strong>丼兵衛海鮮丼</strong>（鮭魚卵+海膽+鮭魚）單人約 <span class="price">¥2,500</span>。</div></div>
     <div class="step"><div class="step-num">3</div><div class="step-content"><span class="hl">12:45 前在 JR 札幌站（5、6號月台）搭「快速エアポート」</span>，票價 <span class="price">¥1,230/人</span>。</div></div>
+    <div class="route-box">🎫 <strong>JR 回程買票步驟</strong>：從飯店步行或搭計程車到 JR 札幌站 → 找站內<strong>綠色或藍色自動售票機</strong> → 切換繁體中文 → 點「片道（單程）」→ 找「<strong>¥1,230（新千歳空港）</strong>」點它 → 投幣拿票 → 找「<strong>5番線・6番線</strong>」月台 → 搭往「<strong>新千歳空港（新千歲機場）</strong>」的快速エアポート → 37分鐘到達。</div>
     <div class="step"><div class="step-num">4</div><div class="step-content">辦完登機，衝「國內線 2 樓商店街」最後掃貨！伴手禮估 <span class="price">¥3,000〜¥10,000/人</span>。<span class="hl">直接帶上飛機！</span></div></div>
     <div class="warn-box">⏰ 12:45 搭車是底線，建議 12:15 出發更從容！</div>
   </div>
