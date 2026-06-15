@@ -1,541 +1,752 @@
-
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北海道 9天8夜攻略 2026</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font-sans);color:var(--color-text-primary);background:transparent}
-.header{background:linear-gradient(135deg,#1a4a6b,#0d6e6e);color:#fff;padding:1.5rem;border-radius:var(--border-radius-lg);margin-bottom:1rem;text-align:center}
-.header h1{font-size:22px;font-weight:500;margin-bottom:4px}
-.header p{font-size:13px;opacity:0.85}
-.tab-bar{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:1rem;background:var(--color-background-secondary);padding:6px;border-radius:var(--border-radius-lg)}
-.tab{padding:6px 10px;border-radius:var(--border-radius-md);border:0.5px solid transparent;cursor:pointer;font-size:12px;font-weight:500;white-space:nowrap;background:transparent;color:var(--color-text-secondary);transition:all .15s}
-.tab:hover{background:var(--color-background-primary);color:var(--color-text-primary)}
-.tab.active{background:var(--color-background-primary);color:#1a4a6b;border-color:var(--color-border-secondary)}
-.panel{display:none}
+:root{
+  --blue:#1a4a6b;--teal:#0d6e6e;--bg:#f6f5f0;--card:#fff;
+  --border:#e0dfd8;--text:#222;--muted:#666;
+  --warn-bg:#fff8e6;--warn-b:#f0c040;
+  --tip-bg:#e8f4f8;--tip-b:#9fd5e8;
+  --green:#2e8b57;--red:#c0392b;--gold:#b8860b;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);padding-bottom:3rem}
+.header{background:linear-gradient(135deg,#1a4a6b,#0d6e6e);color:#fff;padding:1.2rem 1rem 1rem;text-align:center}
+.header h1{font-size:clamp(17px,5vw,22px);font-weight:700;margin-bottom:4px}
+.header p{font-size:clamp(11px,3vw,13px);opacity:.85;line-height:1.5}
+.tab-bar{position:sticky;top:0;z-index:100;background:#e8e7e0;padding:5px;display:flex;gap:3px;overflow-x:auto;scrollbar-width:none}
+.tab-bar::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;padding:6px 10px;border-radius:7px;border:none;cursor:pointer;font-size:clamp(11px,3vw,12px);font-weight:600;white-space:nowrap;background:transparent;color:#555;transition:all .15s}
+.tab.active{background:#fff;color:var(--blue);box-shadow:0 1px 4px rgba(0,0,0,.15)}
+.panel{display:none;padding:9px;max-width:720px;margin:0 auto}
 .panel.active{display:block}
-.day-header{display:flex;align-items:center;gap:12px;padding:1rem 1.25rem;background:var(--color-background-secondary);border-radius:var(--border-radius-lg);margin-bottom:12px;border-left:4px solid #1a4a6b}
-.day-badge{background:#1a4a6b;color:#fff;font-size:11px;font-weight:500;padding:3px 8px;border-radius:var(--border-radius-md);white-space:nowrap}
-.day-title{font-size:16px;font-weight:500}
-.day-meta{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
-.section{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:10px}
-.section-title{font-size:13px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
-.section-title i{font-size:15px}
-.step{display:flex;gap:10px;margin-bottom:8px;padding-bottom:8px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.day-header{background:var(--card);border-left:4px solid var(--blue);border-radius:12px;padding:.85rem 1rem;margin-bottom:9px;box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.day-badge{display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:5px}
+.day-title{font-size:clamp(14px,4vw,16px);font-weight:700;line-height:1.4;margin-bottom:3px}
+.day-meta{font-size:11px;color:var(--muted);line-height:1.5}
+.section{background:var(--card);border:.5px solid var(--border);border-radius:12px;padding:.85rem 1rem;margin-bottom:9px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.section-title{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:9px;display:flex;align-items:center;gap:5px}
+.step{display:flex;gap:9px;margin-bottom:8px;padding-bottom:8px;border-bottom:.5px solid #f0f0ea}
 .step:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.step-num{min-width:22px;height:22px;background:#1a4a6b;color:#fff;border-radius:50%;font-size:11px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.step-content{font-size:13px;line-height:1.6;color:var(--color-text-primary)}
-.step-content strong{font-weight:500;color:#1a4a6b}
-.jp-phrase{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;margin:4px 0;display:flex;align-items:flex-start;gap:8px}
-.jp-text{flex:1}
-.jp-label{font-size:11px;color:var(--color-text-tertiary);margin-bottom:2px}
-.jp-main{font-size:13px;color:var(--color-text-primary);line-height:1.5}
-.jp-reading{font-size:11px;color:var(--color-text-secondary);margin-top:1px}
-.speak-btn{background:transparent;border:0.5px solid #1a4a6b;color:#1a4a6b;border-radius:var(--border-radius-md);padding:4px 8px;cursor:pointer;font-size:11px;white-space:nowrap;display:flex;align-items:center;gap:3px;flex-shrink:0}
-.speak-btn:hover{background:#1a4a6b;color:#fff}
-.speak-btn i{font-size:13px}
-.alt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
-.alt-card{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px}
-.alt-card-name{font-size:13px;font-weight:500;color:#0d6e6e;margin-bottom:3px}
-.alt-card-desc{font-size:11px;color:var(--color-text-secondary);line-height:1.5}
-.food-item{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
-.food-item:last-child{border-bottom:none}
-.food-icon{font-size:18px;flex-shrink:0}
-.food-name{font-size:13px;font-weight:500;margin-bottom:2px}
-.food-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
-.tip-box{background:#e8f4f8;border:0.5px solid #9fd5e8;border-radius:var(--border-radius-md);padding:10px 12px;margin:8px 0;font-size:12px;color:#1a4a6b;line-height:1.6}
-.warn-box{background:#fff8e6;border:0.5px solid #f0c040;border-radius:var(--border-radius-md);padding:10px 12px;margin:8px 0;font-size:12px;color:#7a5500;line-height:1.6}
-.shop-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.shop-tag{background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:12px;padding:3px 10px;font-size:11px;color:var(--color-text-secondary)}
-.shop-tag.cheap{border-color:#2e8b57;color:#2e8b57;background:#edfaf4}
-.highlight{background:#fff3cd;padding:1px 4px;border-radius:3px;font-size:inherit}
-
-.shop-table{width:100%;border-collapse:collapse;font-size:12px}
-.shop-table th{background:var(--color-background-secondary);padding:6px 8px;text-align:left;font-weight:500;font-size:11px;color:var(--color-text-secondary);border-bottom:0.5px solid var(--color-border-tertiary)}
-.shop-table td{padding:6px 8px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:top;line-height:1.5}
-.shop-table tr:last-child td{border-bottom:none}
-.best{color:#2e8b57;font-weight:500}
+.step-num{min-width:21px;height:21px;background:var(--blue);color:#fff;border-radius:50%;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-content{font-size:clamp(12px,3.5vw,13px);line-height:1.75;flex:1}
+.step-content strong{color:var(--blue);font-weight:700}
+.hl{background:#fff3cd;padding:1px 4px;border-radius:3px;font-weight:600}
+.warn-box{background:var(--warn-bg);border:.5px solid var(--warn-b);border-radius:8px;padding:9px 11px;margin:6px 0;font-size:clamp(11px,3vw,12px);color:#7a5500;line-height:1.7}
+.tip-box{background:var(--tip-bg);border:.5px solid var(--tip-b);border-radius:8px;padding:9px 11px;margin:6px 0;font-size:clamp(11px,3vw,12px);color:#1a4a6b;line-height:1.7}
+.green-box{background:#edfaf4;border:.5px solid #2e8b57;border-radius:8px;padding:9px 11px;margin:6px 0;font-size:clamp(11px,3vw,12px);color:#1a5c35;line-height:1.7}
+.gold-box{background:#fdf6e3;border:.5px solid var(--gold);border-radius:8px;padding:9px 11px;margin:6px 0;font-size:clamp(11px,3vw,12px);color:#7a5000;line-height:1.7}
+.meal-row{display:flex;gap:8px;margin-bottom:8px;padding-bottom:8px;border-bottom:.5px solid #f0f0ea}
+.meal-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.meal-tag{flex-shrink:0;font-size:10px;font-weight:700;padding:2px 7px;border-radius:9px;margin-top:2px;height:fit-content}
+.meal-tag.lunch{background:#fef3c7;color:#92400e}
+.meal-tag.dinner{background:#fee2e2;color:#991b1b}
+.meal-name{font-size:clamp(12px,3.5vw,13px);font-weight:700;margin-bottom:2px}
+.meal-desc{font-size:11px;color:var(--muted);line-height:1.55}
+.jp-phrase{background:#f8f8f5;border:.5px solid var(--border);border-radius:8px;padding:8px 10px;margin:4px 0;display:flex;align-items:flex-start;gap:8px}
+.jp-text{flex:1;min-width:0}
+.jp-label{font-size:10px;color:#999;margin-bottom:1px}
+.jp-main{font-size:clamp(13px,3.5vw,15px);line-height:1.5;font-weight:500;word-break:break-all}
+.jp-reading{font-size:10px;color:var(--muted);margin-top:2px;line-height:1.4}
+.speak-btn{flex-shrink:0;background:#fff;border:1.5px solid var(--blue);color:var(--blue);border-radius:7px;padding:5px 9px;cursor:pointer;font-size:11px;font-weight:700;transition:all .15s;white-space:nowrap}
+.speak-btn:hover,.speak-btn:active{background:var(--blue);color:#fff}
+.speak-btn.playing{background:#0d6e6e;border-color:#0d6e6e;color:#fff}
+.grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:7px}
+.card{background:#f8f8f5;border:.5px solid var(--border);border-radius:8px;padding:8px 9px}
+.card-name{font-size:clamp(12px,3vw,13px);font-weight:700;color:#0d6e6e;margin-bottom:3px}
+.card-desc{font-size:11px;color:var(--muted);line-height:1.5}
+.route-box{background:#f0f4ff;border:.5px solid #b0c0e0;border-radius:8px;padding:9px 11px;margin:6px 0;font-size:clamp(11px,3vw,12px);line-height:1.8}
+.route-box strong{color:var(--blue)}
+.map-btn{display:block;background:var(--blue);color:#fff;text-align:center;padding:10px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:700;margin:6px 0}
+.map-btn:hover{background:#0d6e6e}
+.map-btn span{font-size:11px;font-weight:400;opacity:.85;display:block;margin-top:1px}
+.table-wrap{overflow-x:auto;border-radius:8px;border:.5px solid var(--border)}
+.rt{width:100%;border-collapse:collapse;font-size:clamp(11px,3vw,12px)}
+.rt th{background:#f0f0ea;padding:6px 8px;text-align:left;font-weight:700;font-size:10px;color:var(--muted);border-bottom:1px solid var(--border)}
+.rt td{padding:6px 8px;border-bottom:.5px solid #f0f0ea;vertical-align:top;line-height:1.6}
+.rt tr:last-child td{border-bottom:none}
+.best{color:var(--green);font-weight:700}
+.price{color:#c0392b;font-weight:700}
+.free{color:var(--green);font-weight:700}
+.budget-row{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:.5px solid #f0f0ea;font-size:clamp(12px,3vw,13px)}
+.budget-row:last-child{border-bottom:none}
+.budget-label{flex:1;color:var(--text)}
+.budget-label .sub{font-size:11px;color:var(--muted);display:block;margin-top:1px}
+.budget-yen{font-weight:700;color:#c0392b;white-space:nowrap;margin-left:8px}
+.budget-yen.free{color:var(--green)}
+.budget-yen.low{color:#e67e22}
+.budget-total{background:linear-gradient(135deg,#1a4a6b,#0d6e6e);color:#fff;border-radius:10px;padding:12px 14px;margin-top:8px;display:flex;justify-content:space-between;align-items:center}
+.budget-total-label{font-size:13px;font-weight:600}
+.budget-total-amount{font-size:20px;font-weight:700}
+.budget-total-sub{font-size:11px;opacity:.8;margin-top:2px}
+.summary-card{background:var(--card);border:.5px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:9px}
+.summary-day{font-size:12px;font-weight:700;color:var(--blue);margin-bottom:6px;padding-bottom:6px;border-bottom:.5px solid #f0f0ea}
+.note-tag{display:inline-block;background:#e8f4f8;color:#1a4a6b;font-size:10px;font-weight:700;padding:1px 6px;border-radius:8px;margin-left:4px}
 </style>
-
-<h2 class="sr-only" style="position:absolute;left:-9999px">北海道 9天8夜旅遊完整攻略</h2>
-
+</head>
+<body>
 <div class="header">
   <h1>🗾 北海道 9天8夜完整攻略</h1>
-  <p>6/16(二) ～ 6/24(三)｜日語發音 · 備用景點 · 購物地圖 · 駕車攻略</p>
+  <p>6/16(二)～6/24(三)｜三餐・自駕路線・日語發音・保險・預算</p>
+</div>
+<div class="tab-bar">
+  <button class="tab active" onclick="showTab('budget',this)">💰 預算</button>
+  <button class="tab" onclick="showTab('notice',this)">⚠️ 必看</button>
+  <button class="tab" onclick="showTab('insurance',this)">🏥 保險</button>
+  <button class="tab" onclick="showTab('coupon',this)">🎫 折扣</button>
+  <button class="tab" onclick="showTab('day1',this)">Day1</button>
+  <button class="tab" onclick="showTab('day2',this)">Day2</button>
+  <button class="tab" onclick="showTab('day3',this)">Day3</button>
+  <button class="tab" onclick="showTab('day4',this)">Day4</button>
+  <button class="tab" onclick="showTab('day5',this)">Day5</button>
+  <button class="tab" onclick="showTab('day6',this)">Day6</button>
+  <button class="tab" onclick="showTab('day7',this)">Day7</button>
+  <button class="tab" onclick="showTab('day8',this)">Day8</button>
+  <button class="tab" onclick="showTab('day9',this)">Day9</button>
+  <button class="tab" onclick="showTab('shop',this)">🛍️ 購物</button>
+  <button class="tab" onclick="showTab('omiyage',this)">🎁 伴手禮</button>
 </div>
 
-<div class="tab-bar" id="tabBar">
-  <button class="tab active" onclick="showTab('notice')">⚠️ 必看提醒</button>
-  <button class="tab" onclick="showTab('day1')">Day1 札幌抵達</button>
-  <button class="tab" onclick="showTab('day2')">Day2 白色戀人</button>
-  <button class="tab" onclick="showTab('day3')">Day3 取車·富良野</button>
-  <button class="tab" onclick="showTab('day4')">Day4 薰衣草農場</button>
-  <button class="tab" onclick="showTab('day5')">Day5 洞爺湖</button>
-  <button class="tab" onclick="showTab('day6')">Day6 小樽</button>
-  <button class="tab" onclick="showTab('day7')">Day7 還車·血拼</button>
-  <button class="tab" onclick="showTab('day8')">Day8 狸小路掃貨</button>
-  <button class="tab" onclick="showTab('day9')">Day9 返台</button>
-  <button class="tab" onclick="showTab('shop')">🛍️ 購物地圖</button>
-</div>
-
-<div id="notice" class="panel active">
-  <div class="section">
-    <div class="section-title"><i class="ti ti-alert-triangle" aria-hidden="true"></i>入境&取車絕對不能忘</div>
-    <div class="warn-box">🛂 <strong>護照入境章</strong>：過海關務必走人工閘機，索取「上陸許可貼紙（入境章）」。若只走自動閘機沒有蓋章，租車公司可拒絕取車且不退款！</div>
-    <div class="warn-box">🚗 <strong>ETC 卡</strong>：無需提前購買！6/18 取車當天在 Times 櫃檯直接租借（約¥330 手續費）。還車時一次結清過路費。走高速請找「藍綠色 ETC 專用車道」，車速降至 20km/h 以下。</div>
-    <div class="tip-box">✅ <strong>保險</strong>：您已購買「加強保障 Plus（プレミアムプラス）」，含自負額與停業賠償（NOC）免除。取車時可自行決定是否加購輪胎/玻璃險。</div>
-    <div class="tip-box">⛽ <strong>加油</strong>：日本加油站說「レギュラー満タン（Regular 加滿）」，還車前務必加滿並索取紙本收據。</div>
-  </div>
-  <div class="section">
-    <div class="section-title"><i class="ti ti-car" aria-hidden="true"></i>自駕高速公路攻略</div>
-    <div class="step"><div class="step-num">1</div><div class="step-content">上高速：找「入口（入り口）」，走 ETC 車道，速度 ≤20km/h 讓感應器讀卡</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-content">行駛中：靠左行駛，超車用右道，服務區（SA/PA）可休息補給</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-content">下高速：找「出口（出口）」，走 ETC 車道通過，系統自動扣款</div></div>
-    <div class="step"><div class="step-num">4</div><div class="step-content">緊急狀況：撥打 #9910（道路緊急電話）或查閱租車合約上的緊急電話</div></div>
-  </div>
-  <div class="section">
-    <div class="section-title"><i class="ti ti-volume" aria-hidden="true"></i>急用日語速查</div>
-    <div class="jp-phrase">
-      <div class="jp-text">
-        <div class="jp-label">🆘 緊急求助</div>
-        <div class="jp-main">助けてください！</div>
-        <div class="jp-reading">Tasukete kudasai! ／ 救命啊！</div>
-      </div>
-      <button class="speak-btn" onclick="speak('助けてください')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button>
-    </div>
-    <div class="jp-phrase">
-      <div class="jp-text">
-        <div class="jp-label">🏥 叫救護車</div>
-        <div class="jp-main">救急車を呼んでください！</div>
-        <div class="jp-reading">Kyūkyūsha wo yonde kudasai! ／ 請叫救護車！</div>
-      </div>
-      <button class="speak-btn" onclick="speak('救急車を呼んでください')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button>
-    </div>
-    <div class="jp-phrase">
-      <div class="jp-text">
-        <div class="jp-label">🚓 報警</div>
-        <div class="jp-main">警察を呼んでください！</div>
-        <div class="jp-reading">Keisatsu wo yonde kudasai! ／ 請叫警察！</div>
-      </div>
-      <button class="speak-btn" onclick="speak('警察を呼んでください')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button>
-    </div>
-    <div class="jp-phrase">
-      <div class="jp-text">
-        <div class="jp-label">🚻 廁所在哪</div>
-        <div class="jp-main">トイレはどこですか？</div>
-        <div class="jp-reading">Toire wa doko desu ka? ／ 廁所在哪裡？</div>
-      </div>
-      <button class="speak-btn" onclick="speak('トイレはどこですか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button>
-    </div>
-  </div>
-</div>
-
-<div id="day1" class="panel">
+<!-- ===== BUDGET ===== -->
+<div id="budget" class="panel active">
   <div class="day-header">
-    <div>
-      <div class="day-badge">Day 1 ｜ 6/16 (二)</div>
-      <div class="day-title">✈️ 抵達札幌 → 大通公園 → 螃蟹吃到飽 → 拉麵橫丁</div>
-      <div class="day-meta">11:05 降落新千歲機場 → 搭 JR 快速機場號 → 飯店 → 大通公園散步</div>
+    <div class="day-badge">完整預算總覽</div>
+    <div class="day-title">💰 9天8夜旅費估算（單人）</div>
+    <div class="day-meta">以下為每日概估，實際依消費習慣增減｜¥100 ≈ NT$22<br>租車費用為2人共享，此處已平分為單人負擔</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📊 每日預算速查（單人）</div>
+
+    <div class="summary-card">
+      <div class="summary-day">Day 1（6/16）✈️ 抵達札幌・採購・螃蟹晚餐</div>
+      <div class="budget-row"><div class="budget-label">JR 快速エアポート（機場→札幌）</div><div class="budget-yen">¥1,230</div></div>
+      <div class="budget-row"><div class="budget-label">地鐵（大通站周邊移動 2趟）</div><div class="budget-yen">¥420</div></div>
+      <div class="budget-row"><div class="budget-label">午餐（機場美食街）</div><div class="budget-yen">¥1,000</div></div>
+      <div class="budget-row"><div class="budget-label">晚餐：蟹座螃蟹吃到飽</div><div class="budget-yen">¥6,000</div></div>
+      <div class="budget-row"><div class="budget-label">採購：衣服、鞋子<div class="sub">視個人，另計</div></div><div class="budget-yen low">¥5,000〜</div></div>
+      <div class="budget-total"><div><div class="budget-total-label">Day 1 小計（不含採購）</div><div class="budget-total-sub">單人</div></div><div class="budget-total-amount">¥8,650</div></div>
+    </div>
+
+    <div class="summary-card">
+      <div class="summary-day">Day 2（6/17）🎓 北大博物館・白色戀人・狸小路</div>
+      <div class="budget-row"><div class="budget-label">地鐵一日券（平日）</div><div class="budget-yen">¥830</div></div>
+      <div class="budget-row"><div class="budget-label">北海道大學綜合博物館</div><div class="budget-yen free">免費</div></div>
+      <div class="budget-row"><div class="budget-label">博物館咖啡廳霜淇淋</div><div class="budget-yen">¥350</div></div>
+      <div class="budget-row"><div class="budget-label">白色戀人公園入場費</div><div class="budget-yen">¥800</div></div>
+      <div class="budget-row"><div class="budget-label">午餐：北大生協食堂</div><div class="budget-yen">¥900</div></div>
+      <div class="budget-row"><div class="budget-label">晚餐：松尾成吉思汗烤肉</div><div class="budget-yen">¥3,000</div></div>
+      <div class="budget-row"><div class="budget-label">藥妝採購<div class="sub">視個人，另計</div></div><div class="budget-yen low">¥3,000〜</div></div>
+      <div class="budget-total"><div><div class="budget-total-label">Day 2 小計（不含採購）</div><div class="budget-total-sub">單人</div></div><div class="budget-total-amount">¥5,880</div></div>
+    </div>
+
+    <div class="summary-card">
+      <div class="summary-day">Day 3（6/18）🚗 取車・四季彩の丘・富良野</div>
+      <div class="budget-row"><div class="budget-label">Times 租車費（2人平分，每日）<div class="sub">總車資約¥40,000〜¥50,000÷5天÷2人</div></div><div class="budget-yen">¥4,000〜¥5,000</div></div>
+      <div class="budget-row"><div class="budget-label">ETC 卡租借手續費（2人平分）</div><div class="budget-yen">¥165</div></div>
+      <div class="budget-row"><div class="budget-label">高速公路：札幌→美瑛（2人平分）</div><div class="budget-yen">¥1,400</div></div>
+      <div class="budget-row"><div class="budget-label">汽油費（2人平分，約200km）</div><div class="budget-yen">¥1,135</div></div>
+      <div class="budget-row"><div class="budget-label">四季彩の丘停車費（2人平分）</div><div class="budget-yen">¥250</div></div>
+      <div class="budget-row"><div class="budget-label">午餐：四季彩の丘餐廳</div><div class="budget-yen">¥1,200</div></div>
+      <div class="budget-row"><div class="budget-label">晚餐：唯我獨尊黑咖哩</div><div class="budget-yen">¥1,500</div></div>
+      <div class="budget-total"><div><div class="budget-total-label">Day 3 小計</div><div class="budget-total-sub">單人</div></div><div class="budget-total-amount">¥9,650〜</div></div>
+    </div>
+
+    <div class="summary-card">
+      <div class="summary-day">Day 4（6/19）🪻 富田農場・藍池・生牛肉丼</div>
+      <div class="budget-row"><div class="budget-label">租車費（單人每日分攤）</div><div class="budget-yen">¥4,000〜¥5,000</div></div>
+      <div class="budget-row"><div class="budget-label">汽油費（2人平分，約120km）</div><div class="budget-yen">¥680</div></div>
+      <div class="budget-row"><div class="budget-label">富田農場入場</div><div class="budget-yen free">免費</div></div>
+      <div class="budget-row"><div class="budget-label">藍池停車費（2人平分，協力金）</div><div class="budget-yen low">¥100〜</div></div>
+      <div class="budget-row"><div class="budget-label">薰衣草相關購物（霜淇淋等）</div><div class="budget-yen">¥800</div></div>
+      <div class="budget-row"><div class="budget-label">午餐：富田農場餐廳</div><div class="budget-yen">¥1,200</div></div>
+      <div class="budget-row"><div class="budget-label">晚餐：Kumagera 生牛肉丼</div><div class="budget-yen">¥2,500</div></div>
+      <div class="budget-total"><div><div class="budget-total-label">Day 4 小計</div><div class="budget-total-sub">單人</div></div><div class="budget-total-amount">¥9,280〜</div></div>
+    </div>
+
+    <div class="summary-card">
+      <div class="summary-day">Day 5（6/20）🌋 富良野→洞爺湖・乃之風 Buffet</div>
+      <div class="budget-row"><div class="budget-label">租車費（單人每日分攤）</div><div class="budget-yen">¥4,000〜¥5,000</div></div>
+      <div class="budget-row"><div class="budget-label">高速公路：富良野→洞爺湖（2人平分）</div><div class="budget-yen">¥1,750</div></div>
+      <div class="budget-row"><div class="budget-label">汽油費（2人平分，約200km）</div><div class="budget-yen">¥1,135</div></div>
+      <div class="budget-row"><div class="budget-label">筒倉展望台入場</div><div class="budget-yen">¥900</div></div>
+      <div class="budget-row"><div class="budget-label">午餐：高速服務區</div><div class="budget-yen">¥1,000</div></div>
+      <div class="budget-row"><div class="budget-label">晚餐：TOYA 乃之風 Buffet<div class="sub">通常含於住宿方案，單點約¥4,000〜</div></div><div class="budget-yen low">¥0〜¥4,000</div></div>
+      <div class="budget-total"><div><div class="budget-total-label">Day 5 小計</div><div class="budget-total-sub">單人（Buffet 依住宿方案）</div></div><div class="budget-total-amount">¥8,785〜</div></div>
+    </div>
+
+    <div class="summary-card">
+      <div class="summary-day">Day 6（6/21）🌊 洞爺湖→小樽・壽司屋通</div>
+      <div class="budget-row"><div class="budget-label">租車費（單人每日分攤）</div><div class="budget-yen">¥4,000〜¥5,000</div></div>
+      <div class="budget-row"><div class="budget-label">汽油費（2人平分，約140km）</div><div class="budget-yen">¥795</div></div>
+      <div class="budget-row"><div class="budget-label">小樽飯店停車費（2人平分）</div><div class="budget-yen">¥500</div></div>
+      <div class="budget-row"><div class="budget-label">午餐：LeTAO 本店</div><div class="budget-yen">¥1,000</div></div>
+      <div class="budget-row"><div class="budget-label">晚餐：壽司屋通（政寿司等）</div><div class="budget-yen">¥5,000</div></div>
+      <div class="budget-total"><div><div class="budget-total-label">Day 6 小計</div><div class="budget-total-sub">單人</div></div><div class="budget-total-amount">¥11,295〜</div></div>
+    </div>
+
+    <div class="summary-card">
+      <div class="summary-day">Day 7（6/22）🔑 還車・北海道神宮・大丸</div>
+      <div class="budget-row"><div class="budget-label">租車費（最後一天，單人分攤）</div><div class="budget-yen">¥4,000〜¥5,000</div></div>
+      <div class="budget-row"><div class="budget-label">高速公路：小樽→札幌（2人平分）</div><div class="budget-yen">¥400</div></div>
+      <div class="budget-row"><div class="budget-label">最後加油（2人平分）</div><div class="budget-yen">¥1,500</div></div>
+      <div class="budget-row"><div class="budget-label">地鐵：ANA飯店→円山公園 2趟</div><div class="budget-yen">¥420</div></div>
+      <div class="budget-row"><div class="budget-label">北海道神宮（御朱印）</div><div class="budget-yen free">免費（御朱印¥500）</div></div>
+      <div class="budget-row"><div class="budget-label">六花亭 神宮茶屋 福レ餅</div><div class="budget-yen">¥110</div></div>
+      <div class="budget-row"><div class="budget-label">午餐：神宮周邊茶屋小吃</div><div class="budget-yen">¥800</div></div>
+      <div class="budget-row"><div class="budget-label">晚餐：浜っ子 海鮮居酒屋</div><div class="budget-yen">¥4,000</div></div>
+      <div class="budget-total"><div><div class="budget-total-label">Day 7 小計</div><div class="budget-total-sub">單人</div></div><div class="budget-total-amount">¥11,230〜</div></div>
+    </div>
+
+    <div class="summary-card">
+      <div class="summary-day">Day 8（6/23）🛍 狸小路大掃貨・湯咖哩</div>
+      <div class="budget-row"><div class="budget-label">地鐵（今日幾乎步行）</div><div class="budget-yen free">¥0〜</div></div>
+      <div class="budget-row"><div class="budget-label">札幌電視塔展望台</div><div class="budget-yen">¥800</div></div>
+      <div class="budget-row"><div class="budget-label">午餐：拉麵共和國（JR塔10F）</div><div class="budget-yen">¥1,500</div></div>
+      <div class="budget-row"><div class="budget-label">晚餐：GARAKU 湯咖哩</div><div class="budget-yen">¥2,000</div></div>
+      <div class="budget-row"><div class="budget-label">計程車（戰利品回飯店，2人平分）</div><div class="budget-yen">¥500</div></div>
+      <div class="budget-row"><div class="budget-label">藥妝採購<div class="sub">視個人，另計</div></div><div class="budget-yen low">¥5,000〜¥25,000</div></div>
+      <div class="budget-total"><div><div class="budget-total-label">Day 8 小計（不含採購）</div><div class="budget-total-sub">單人</div></div><div class="budget-total-amount">¥4,800</div></div>
+    </div>
+
+    <div class="summary-card">
+      <div class="summary-day">Day 9（6/24）🍣 二條市場・機場・返台</div>
+      <div class="budget-row"><div class="budget-label">計程車：飯店→二條市場（2人平分）</div><div class="budget-yen">¥400</div></div>
+      <div class="budget-row"><div class="budget-label">早午餐：丼兵衛海鮮丼</div><div class="budget-yen">¥2,500</div></div>
+      <div class="budget-row"><div class="budget-label">JR 快速エアポート（札幌→機場）</div><div class="budget-yen">¥1,230</div></div>
+      <div class="budget-row"><div class="budget-label">機場餐（辦完登機後）</div><div class="budget-yen">¥1,000</div></div>
+      <div class="budget-row"><div class="budget-label">機場伴手禮採購<div class="sub">視個人，另計</div></div><div class="budget-yen low">¥3,000〜¥10,000</div></div>
+      <div class="budget-total"><div><div class="budget-total-label">Day 9 小計（不含伴手禮）</div><div class="budget-total-sub">單人</div></div><div class="budget-total-amount">¥5,130</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">💴 旅費總計（單人）</div>
+    <div class="table-wrap">
+      <table class="rt">
+        <tr><th>項目</th><th>單人預估</th><th>備註</th></tr>
+        <tr><td><strong>交通費（JR、地鐵、計程車）</strong></td><td class="price">¥4,000</td><td>Day1+Day9 JR 各¥1,230</td></tr>
+        <tr><td><strong>租車費（5天，2人平分）</strong></td><td class="price">¥20,000〜¥25,000</td><td>總車資÷2人，依車型</td></tr>
+        <tr><td><strong>高速公路過路費（2人平分）</strong></td><td class="price">¥3,500〜¥4,500</td><td>3大路段合計約¥7,100÷2</td></tr>
+        <tr><td><strong>汽油費（5天，2人平分）</strong></td><td class="price">¥4,500〜¥5,000</td><td>約600km÷2</td></tr>
+        <tr><td><strong>景點票券</strong></td><td class="price">¥2,750</td><td>白色戀人+展望台+電視塔</td></tr>
+        <tr><td><strong>餐費（午+晚，9天）</strong></td><td class="price">¥29,000〜¥35,000</td><td>含螃蟹吃到飽+頂級壽司</td></tr>
+        <tr><td><strong>旅遊保險（TOKIO OMOTENASHI）</strong></td><td class="price">¥1,500</td><td>8-14天方案，每人</td></tr>
+        <tr><td><strong>購物（藥妝+衣服+鞋子）</strong></td><td class="price">¥15,000〜¥50,000</td><td>視個人消費習慣差異大</td></tr>
+        <tr><td><strong>伴手禮（機場+各景點）</strong></td><td class="price">¥5,000〜¥10,000</td><td>六花亭、Royce' 等</td></tr>
+        <tr><td><strong>雜費（停車、霜淇淋、小吃等）</strong></td><td class="price">¥2,000〜¥3,000</td><td>各景點停車協力金等</td></tr>
+      </table>
+    </div>
+    <div class="budget-total" style="border-radius:12px;padding:14px 16px;margin-top:10px">
+      <div>
+        <div class="budget-total-label">🧾 旅遊費用合計（單人，不含住宿）</div>
+        <div class="budget-total-sub">購物金額視個人而異</div>
+      </div>
+      <div style="text-align:right">
+        <div class="budget-total-amount">¥87,000〜</div>
+        <div style="font-size:11px;opacity:.8">≈ NT$19,000〜</div>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top:8px">💡 <strong>平均每天花費（單人，不含住宿採購）：約 ¥6,500〜¥8,000</strong><br>若加上住宿（5晚，單人分攤）：約再加 <strong>¥30,000〜¥50,000</strong></div>
+    <div class="warn-box">🏨 <strong>住宿費用參考（單人分攤）</strong>：<br>
+    ・Randor 飯店（2晚）：約 ¥5,000〜¥8,000/人/夜<br>
+    ・富良野 La Vista（2晚）：約 ¥10,000〜¥15,000/人/夜（不含晚餐方案）<br>
+    ・TOYA 乃之風（1晚）：約 ¥20,000〜¥30,000/人/夜（含 Buffet 方案更划算）<br>
+    ・小樽格蘭貝爾（1晚）：約 ¥7,000〜¥10,000/人/夜<br>
+    ・ANA 皇冠假日（2晚）：約 ¥10,000〜¥18,000/人/夜<br>
+    <strong>住宿合計估算（單人，8晚）：約 ¥70,000〜¥130,000</strong></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🚗 高速公路過路費（單人分攤）</div>
+    <div class="table-wrap">
+      <table class="rt">
+        <tr><th>路段</th><th>上車IC</th><th>下車IC</th><th>ETC費（2人平分）</th></tr>
+        <tr><td>Day3 札幌→美瑛</td><td>札幌北IC</td><td>旭川鷹栖IC</td><td class="price">~¥1,400/人</td></tr>
+        <tr><td>Day5 富良野→洞爺湖</td><td>占冠IC</td><td>虻田洞爺湖IC</td><td class="price">~¥1,750/人</td></tr>
+        <tr><td>Day7 小樽→札幌</td><td>小樽IC</td><td>札幌北IC</td><td class="price">~¥400/人</td></tr>
+        <tr><td><strong>過路費合計（單人）</strong></td><td colspan="2"></td><td class="price"><strong>~¥3,550/人</strong></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">⛽ 汽油費（單人分攤）</div>
+    <div class="table-wrap">
+      <table class="rt">
+        <tr><th>天</th><th>行駛距離</th><th>油費（¥170/L，15km/L）</th><th>單人分攤</th></tr>
+        <tr><td>Day3</td><td>約200km</td><td>¥2,267</td><td class="price">¥1,134</td></tr>
+        <tr><td>Day4</td><td>約120km</td><td>¥1,360</td><td class="price">¥680</td></tr>
+        <tr><td>Day5</td><td>約200km</td><td>¥2,267</td><td class="price">¥1,134</td></tr>
+        <tr><td>Day6</td><td>約140km</td><td>¥1,587</td><td class="price">¥794</td></tr>
+        <tr><td>Day7</td><td>約60km+加滿</td><td>¥2,000</td><td class="price">¥1,000</td></tr>
+        <tr><td><strong>汽油合計（單人）</strong></td><td colspan="2"></td><td class="price"><strong>~¥4,742</strong></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🎟️ 景點票券（單人）</div>
+    <div class="table-wrap">
+      <table class="rt">
+        <tr><th>景點</th><th>單人票價</th><th>備註</th></tr>
+        <tr><td>北海道大學綜合博物館</td><td class="free">¥0</td><td>免費！</td></tr>
+        <tr><td>白色戀人公園</td><td class="price">¥800</td><td>付費入場</td></tr>
+        <tr><td>四季彩の丘（6月）</td><td class="free">¥0</td><td>6月免費！停車¥250/人（2人平分）</td></tr>
+        <tr><td>富田農場</td><td class="free">¥0</td><td>免費！</td></tr>
+        <tr><td>洞爺湖筒倉展望台</td><td class="price">¥900</td><td>付費入場</td></tr>
+        <tr><td>札幌電視塔展望台</td><td class="price">¥800</td><td>付費入場</td></tr>
+        <tr><td>北海道神宮</td><td class="free">¥0</td><td>免費！御朱印¥500自願</td></tr>
+        <tr><td><strong>景點票合計（單人）</strong></td><td class="price"><strong>¥2,500</strong></td><td>免費景點佔多數，超值！</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🍽️ 每日餐費（單人）</div>
+    <div class="table-wrap">
+      <table class="rt">
+        <tr><th>Day</th><th>午餐</th><th>晚餐</th><th>單人合計</th></tr>
+        <tr><td>Day1</td><td>機場¥1,000</td><td>螃蟹¥6,000</td><td class="price">¥7,000</td></tr>
+        <tr><td>Day2</td><td>北大食堂¥900</td><td>烤羊肉¥3,000</td><td class="price">¥3,900</td></tr>
+        <tr><td>Day3</td><td>花田餐廳¥1,200</td><td>黑咖哩¥1,500</td><td class="price">¥2,700</td></tr>
+        <tr><td>Day4</td><td>農場餐廳¥1,200</td><td>生牛肉丼¥2,500</td><td class="price">¥3,700</td></tr>
+        <tr><td>Day5</td><td>服務區¥1,000</td><td>乃之風Buffet（含住宿）</td><td class="price">¥1,000〜</td></tr>
+        <tr><td>Day6</td><td>LeTAO¥1,000</td><td>壽司¥5,000</td><td class="price">¥6,000</td></tr>
+        <tr><td>Day7</td><td>神宮茶屋¥800</td><td>海鮮居酒屋¥4,000</td><td class="price">¥4,800</td></tr>
+        <tr><td>Day8</td><td>拉麵¥1,500</td><td>湯咖哩¥2,000</td><td class="price">¥3,500</td></tr>
+        <tr><td>Day9</td><td>海鮮丼¥2,500</td><td>機場¥1,000</td><td class="price">¥3,500</td></tr>
+        <tr><td><strong>餐費合計</strong></td><td colspan="2"></td><td class="price"><strong>¥36,100〜</strong></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NOTICE ===== -->
+<div id="notice" class="panel">
+  <div class="section">
+    <div class="section-title">⚠️ 出發前絕對要做的事</div>
+    <div class="warn-box">🛂 <strong>護照入境章</strong>：過海關務必走人工閘機，索取「上陸許可貼紙（入境章）」。若只走自助閘機無章，租車公司可<strong>拒絕取車且不退款</strong>！</div>
+    <div class="warn-box">🚗 <strong>ETC 卡</strong>：不需提前買！6/18 取車時在 Times 櫃檯租借（約¥330）。走高速找「藍綠色 ETC 專用車道」，車速降至 20km/h 以下。</div>
+    <div class="tip-box">✅ <strong>保險</strong>：已購買「加強保障 Plus」，含自負額與 NOC 停業賠償免除。另建議加保日本當地醫療險（見保險分頁）。</div>
+    <div class="tip-box">⛽ <strong>加油</strong>：還車前必須加滿，說「レギュラー満タン」，索取紙本收據並拍油表照片。</div>
+    <div class="green-box">📱 <strong>出發前下載</strong>：Google Maps（離線地圖）、Google 翻譯（日文離線包）、Yahoo!乗換案内（電車查詢）、東京海上日動 APP</div>
+  </div>
+  <div class="section">
+    <div class="section-title">🚗 高速公路自駕完整攻略</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content">取車後先確認：座位調整好、導航設定中文、ETC 卡已插入主機、後視鏡調整妥當。</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>靠左行駛</strong>（日本靠左，台灣靠右，轉彎時特別注意！）</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content">上高速：走<strong>ETC 車道（藍綠色）</strong>，速度降至 20km/h，閘門自動開啟。</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content">速限：高速最高 100km/h，一般道路 60km/h，市區 40km/h。<span class="hl">超速罰款很重！</span></div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-content">下高速：依指標找「出口（でぐち）」→ 走 ETC 車道 → 系統自動扣款。</div></div>
+    <div class="step"><div class="step-num">6</div><div class="step-content">緊急狀況：打雙黃燈，停路肩，放三角警示牌，撥 #9910。</div></div>
+  </div>
+  <div class="section">
+    <div class="section-title">🔊 緊急日語</div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">🆘 救命</div><div class="jp-main">助けてください！</div></div><button class="speak-btn" onclick="speak('助けてください',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">🚑 叫救護車</div><div class="jp-main">救急車を呼んでください！</div></div><button class="speak-btn" onclick="speak('救急車を呼んでください',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">🚓 叫警察</div><div class="jp-main">警察を呼んでください！</div></div><button class="speak-btn" onclick="speak('警察を呼んでください',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">🚘 車子故障</div><div class="jp-main">車が故障しました。助けてください。</div></div><button class="speak-btn" onclick="speak('車が故障しました。助けてください。',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">🚻 廁所</div><div class="jp-main">トイレはどこですか？</div></div><button class="speak-btn" onclick="speak('トイレはどこですか',this)">🔊</button></div>
+  </div>
+</div>
+
+<!-- ===== INSURANCE ===== -->
+<div id="insurance" class="panel">
+  <div class="day-header">
+    <div class="day-badge">強烈推薦</div>
+    <div class="day-title">🏥 TOKIO OMOTENASHI POLICY</div>
+    <div class="day-meta">東京海上日動｜每人 ¥1,500｜免現場墊付醫療費</div>
+  </div>
+  <div class="section">
+    <div class="section-title">✨ 核心優點</div>
+    <div class="green-box">✅ 去醫院前先打電話，<strong>醫療費由東京海上日動直付醫院</strong>，完全不用現場墊錢！</div>
+    <div class="green-box">✅ <strong>中文專員</strong>協助，安排就醫、語言翻譯全包！</div>
+    <div class="green-box">✅ 理賠最高 <strong>1,000 萬日圓（≈NT$210萬）</strong>，含新冠肺炎，實支實付。</div>
+    <div class="warn-box">⚠️ <strong>台灣無法投保！</strong>必須抵達日本後才能申請，且<strong>入境後 5 天內</strong>完成，保障從投保隔天起算。</div>
+  </div>
+  <div class="section">
+    <div class="section-title">📋 保費（每人）</div>
+    <div class="table-wrap">
+      <table class="rt">
+        <tr><th>天數</th><th>保費（每人）</th><th>約台幣</th></tr>
+        <tr><td>1-3天</td><td>¥500</td><td>NT$110</td></tr>
+        <tr><td>4-7天</td><td>¥1,000</td><td>NT$220</td></tr>
+        <tr><td><strong>8-14天 ← 你們適用</strong></td><td class="price"><strong>¥1,500/人</strong></td><td><strong>NT$330</strong></td></tr>
+        <tr><td>15-31天</td><td>¥2,000</td><td>NT$440</td></tr>
+      </table>
     </div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-route" aria-hidden="true"></i>詳細路線步驟</div>
-    <div class="step"><div class="step-num">1</div><div class="step-content">降落後，過海關<span class="highlight">務必走人工通道蓋章</span>（入境章）。出外國人入境大廳後，跟著藍色「JR線」指標走，搭手扶梯下至 B1。</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-content">在 B1 售票機購買「<strong>JR快速エアポート</strong>」至札幌，車程 37 分鐘。進入 5、6 號月台搭車。</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-content">抵達 JR 札幌站後，跟著黃色「地下鉄」指標，步行約 5 分鐘轉乘地鐵。搭<strong>南北線（綠色）往真駒內方向</strong>，坐 2 站至「<strong>大通站</strong>」。</div></div>
-    <div class="step"><div class="step-num">4</div><div class="step-content">Randor 飯店：從大通站走地下街往薄野/狸小路方向，從「<strong>豊水薄野站 7 號出口</strong>」出來，往西側步行 5-7 分鐘，看到深黑色現代外牆即達。15:00 辦理入住。</div></div>
-    <div class="step"><div class="step-num">5</div><div class="step-content"><strong>大通公園散步</strong>：全長 1.5 公里的帶狀公園，電視塔旁拍照。免費入園，夏季有噴泉及花卉展覽。</div></div>
-    <div class="step"><div class="step-num">6</div><div class="step-content">晚餐：<strong>蟹座札幌（螃蟹吃到飽）</strong>→ 從飯店步行約 6 分鐘，往南5條西2丁目。宵夜：<strong>元祖札幌拉麵橫丁</strong>（南5條西3丁目1階）。</div></div>
+    <div class="section-title">📝 投保步驟（入境當天就做！）</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content">抵達日本後，用手機連上 <strong>Visit Japan Web（VJW）平台</strong>，或直接搜尋「TOKIO OMOTENASHI POLICY」。</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content">點「TOKIO OMOTENASHI POLICY 訪日外國人專用旅遊保險」→「1-31日 日本旅遊保險」。</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content">輸入 Email，收確認信，點連結開始投保（全程中文）。</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content">填資料、選天數、線上刷卡付款¥1,500/人，立即收到電子保單。下載「東京海上日動 APP」。</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-content">若需就醫：<span class="hl">先撥 APP 中文客服，告知需就醫，保險公司安排並直付醫院，完全不需墊錢！</span></div></div>
+    <a class="map-btn" href="https://tokiomarinenichido.jp/zh-hant/china2/" target="_blank">🔗 前往東京海上日動投保頁面<span>須在日本境內才能連接</span></a>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-volume" aria-hidden="true"></i>今日實用日語</div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問路</div><div class="jp-main">JR線の改札口はどこですか？</div><div class="jp-reading">JR 線的剪票口在哪裡？</div></div><button class="speak-btn" onclick="speak('JR線の改札口はどこですか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問飯店方向</div><div class="jp-main">ホテルはどちらの方向ですか？</div><div class="jp-reading">飯店在哪個方向？</div></div><button class="speak-btn" onclick="speak('ホテルはどちらの方向ですか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問出口</div><div class="jp-main">7番出口はどちらですか？</div><div class="jp-reading">7 號出口在哪裡？</div></div><button class="speak-btn" onclick="speak('7番出口はどちらですか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">確認搭車</div><div class="jp-main">これは札幌行きですか？</div><div class="jp-reading">這班車是去札幌的嗎？</div></div><button class="speak-btn" onclick="speak('これは札幌行きですか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
+    <div class="section-title">🔊 就醫日語</div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">告知有保險</div><div class="jp-main">保険に加入しています。東京海上日動の保険です。</div></div><button class="speak-btn" onclick="speak('保険に加入しています。東京海上日動の保険です。',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">肚子痛</div><div class="jp-main">お腹が痛いです。</div></div><button class="speak-btn" onclick="speak('お腹が痛いです',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">頭痛</div><div class="jp-main">頭が痛いです。</div></div><button class="speak-btn" onclick="speak('頭が痛いです',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">發燒</div><div class="jp-main">熱があります。</div></div><button class="speak-btn" onclick="speak('熱があります',this)">🔊</button></div>
+  </div>
+</div>
+
+<!-- ===== COUPON ===== -->
+<div id="coupon" class="panel">
+  <div class="day-header">
+    <div class="day-badge">省錢必看</div>
+    <div class="day-title">🎫 折扣券 & 外國人優惠大全</div>
+    <div class="day-meta">出發前存好手機，現場出示護照+手機畫面即可</div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-map-pin" aria-hidden="true"></i>備用景點（至少 5 個）</div>
-    <div class="alt-grid">
-      <div class="alt-card"><div class="alt-card-name">🏛 北海道廳舊本廳舍</div><div class="alt-card-desc">美麗磚紅色建築，免費參觀，室內展示北海道歷史，附近有花園。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🌲 北海道大學校園</div><div class="alt-card-desc">大片銀杏大道、植物園，免費漫步，夏天景色極佳，附近有咖啡廳。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🦌 札幌羊之丘展望台</div><div class="alt-card-desc">克拉克博士「Boys be ambitious」雕像，俯瞰札幌市區全景，夏天有薰衣草。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🏪 場外市場（二條市場）</div><div class="alt-card-desc">海鮮丼、活蟹、帝王蟹腳，早市活力滿滿，距大通公園步行 10 分鐘。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🌙 薄野（すすきの）</div><div class="alt-card-desc">札幌著名夜生活商圈，除了酒吧也有很多平價美食、居酒屋，夜晚霓虹璀璨。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🎡 COCONO SUSUKINO</div><div class="alt-card-desc">薄野新商場，頂樓有全球最北端摩天輪，免費乘坐，視野絕佳。</div></div>
-    </div>
+    <div class="section-title">💊 藥妝折扣</div>
+    <div class="gold-box">🏆 <strong>札幌藥妝 95折券</strong>：消費滿¥5,000 退稅，同時出示電子券再 95折。滿¥20,000 再現折¥500。<br><strong style="color:#2e8b57">👉 搜尋「札幌薬妝 クーポン 外国人」下載，無需列印！</strong></div>
+    <div class="gold-box">🛒 <strong>唐吉訶德 5% OFF</strong>：消費滿¥10,000（未稅），外國人電子券再折 5%。<br><strong style="color:#2e8b57">👉 唐吉訶德官網或 App 下載外國人電子券。</strong></div>
+    <div class="gold-box">💊 <strong>SUNDRUG 92折券</strong>：出示護照退稅時搭配電子券再享 92折。<br><strong style="color:#2e8b57">👉 搜尋「SUNDRUG クーポン 台湾」</strong></div>
+  </div>
+  <div class="section">
+    <div class="section-title">💰 省錢秘技</div>
+    <div class="tip-box">🚇 <strong>地鐵一日券</strong>：平日¥830，週末¥520（DONICHIKA）。Day2（三）買平日券，搭超過4次就回本！</div>
+    <div class="tip-box">🍜 <strong>午餐省很大</strong>：同一家餐廳午間套餐通常比晚餐便宜 30-40%！</div>
+    <div class="tip-box">🛒 <strong>宮之澤 SEIYU</strong>：晚上 19:00 後食品打 7 折，零食、飲料比藥妝店便宜 20-30%！</div>
+  </div>
+</div>
+
+<!-- ===== DAYS ===== -->
+<div id="day1" class="panel">
+  <div class="day-header"><div class="day-badge">Day 1 ｜ 6/16 (二)</div><div class="day-title">✈️ 抵達札幌 → 衣服鞋子藥妝採買 → 螃蟹晚餐</div><div class="day-meta">單人費用（不含採購）：約 ¥8,650</div></div>
+  <div class="section">
+    <div class="section-title">🗺️ Google Maps</div>
+    <a class="map-btn" href="https://maps.app.goo.gl/xBKdCkPHt5h4UJAf6" target="_blank">📍 新千歲機場 → JR 札幌站<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://maps.app.goo.gl/7gBQqczWxYGCLmVq6" target="_blank">📍 札幌狸小路商店街<span>點此開啟 Google Maps</span></a>
+  </div>
+  <div class="section">
+    <div class="section-title">📍 行程 + 費用（單人）</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content">過海關走人工閘機蓋章，搭 <strong>JR快速エアポート</strong> 至札幌（37分）<span class="price">¥1,230</span></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content">轉乘地鐵<strong>南北線（綠色）往真駒內</strong>，2 站至大通站，出「豊水薄野 7 號出口」步行 5-7 分鐘至飯店。地鐵費 <span class="price">¥210/趟</span></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content">下午購物：<strong>① Stellar Place 買鞋 → ② UNIQLO/GU 買衣服 → ③ 狸小路藥妝</strong>。採購金額視個人。</div></div>
+    <div class="route-box">🚉 <strong>容易走錯</strong>：JR 站和地鐵站是分開的，出 JR 閘門後要<strong>繼續往南走</strong>找「地下鉄南北線」入口。</div>
+    <div class="warn-box">💉 入境第一天就要投保「TOKIO OMOTENASHI POLICY」！每人¥1,500，入境後5天內辦理。</div>
+  </div>
+  <div class="section">
+    <div class="section-title">🍽️ 今日餐點（單人）</div>
+    <div class="meal-row"><div class="meal-tag lunch">午餐</div><div><div class="meal-name">🍜 機場美食街（B1）</div><div class="meal-desc">拉麵、丼飯｜單人約 <span class="price">¥1,000</span></div></div></div>
+    <div class="meal-row"><div class="meal-tag dinner">晚餐</div><div><div class="meal-name">🦀 蟹座（螃蟹吃到飽）</div><div class="meal-desc">南5條西2丁目，步行6分鐘｜單人約 <span class="price">¥6,000</span></div></div></div>
+  </div>
+  <div class="section">
+    <div class="section-title">🔊 今日日語</div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問 JR 剪票口</div><div class="jp-main">JR線の改札口はどこですか？</div></div><button class="speak-btn" onclick="speak('JR線の改札口はどこですか',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">試穿鞋子</div><div class="jp-main">この靴、24センチで試着できますか？</div></div><button class="speak-btn" onclick="speak('この靴、24センチで試着できますか',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">試穿衣服</div><div class="jp-main">試着してもいいですか？</div></div><button class="speak-btn" onclick="speak('試着してもいいですか',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">退稅</div><div class="jp-main">免税はできますか？</div></div><button class="speak-btn" onclick="speak('免税はできますか',this)">🔊</button></div>
   </div>
 </div>
 
 <div id="day2" class="panel">
-  <div class="day-header">
-    <div>
-      <div class="day-badge">Day 2 ｜ 6/17 (三)</div>
-      <div class="day-title">🏰 白色戀人公園 → 宮之澤西友 → 狸小路藥妝大血拼</div>
-      <div class="day-meta">地鐵東西線宮之澤站 → 歐式城堡參觀 → 狸小路商店街全掃貨</div>
-    </div>
+  <div class="day-header"><div class="day-badge">Day 2 ｜ 6/17 (三)</div><div class="day-title">🎓 北大博物館 → 霜淇淋 → 白色戀人公園 → 狸小路</div><div class="day-meta">單人費用（不含採購）：約 ¥5,880</div></div>
+  <div class="section">
+    <div class="section-title">🗺️ Google Maps</div>
+    <a class="map-btn" href="https://maps.app.goo.gl/WkPFNEzQxhUmgAJa7" target="_blank">📍 北海道大學綜合博物館<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://maps.app.goo.gl/i2V5xY1VEg4V3CZKA" target="_blank">📍 白色戀人公園<span>點此開啟 Google Maps</span></a>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-route" aria-hidden="true"></i>詳細路線步驟</div>
-    <div class="step"><div class="step-num">1</div><div class="step-content">從飯店步行至地鐵「大通站」，搭乘<strong>東西線（橘色線）往宮之澤方向</strong>，至終點站「<strong>宮の沢駅</strong>」約 16 分鐘。</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-content">出「<strong>5 號出口</strong>」，右手邊是<strong>西友超市（SEIYU）</strong>（下午回程可採購伴手禮與日用品，比狸小路便宜！）。</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-content">出 5 號出口右轉直走，到第一個大十字路口看到北洋銀行後<strong>左轉</strong>，再直走約 400 公尺，左手邊即<strong>白色戀人公園</strong>的紅磚城堡。</div></div>
-    <div class="tip-box">💡 白色戀人公園分「免費區」（玫瑰花園、伴手禮店）和「付費區」（工廠參觀、巧克力歷史館）。注意：2026/7/29 前生產線裝修暫停開放，但 DIY 甜點體驗照常！推薦參加「巧克力 DIY 工坊」體驗。</div>
-    <div class="step"><div class="step-num">4</div><div class="step-content">下午原路折返搭東西線回「大通站」，進入<strong>狸小路商店街 3-5 丁目</strong>，展開藥妝掃貨模式。</div></div>
-    <div class="step"><div class="step-num">5</div><div class="step-content">晚餐：<strong>松尾成吉思汗烤肉（札幌站前店）</strong>→ 搭 1 站至「さっぽろ駅」，步行 3 分鐘至日本生命大樓 B1。無腥味特製醬汁烤羊肉。</div></div>
+    <div class="section-title">📍 行程 + 費用（單人）</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content">買地鐵一日券（平日）<span class="price">¥830/人</span>。搭<strong>南北線往麻生方向</strong>至「北12条站」，步行 5 分鐘進北大校園。</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>北海道大學綜合博物館</strong>：<span class="free">免費！</span>10:00-17:00，週一休。恐龍化石、8公尺日本龍！博物館 Café 霜淇淋 <span class="price">¥350</span>。</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content">下午在大通站換東西線至宮之澤，步行至<strong>白色戀人公園</strong> <span class="price">¥800</span>。回程在<strong>宮之澤西友超市</strong>採購（最便宜！）。</div></div>
+    <div class="route-box">🚉 <strong>容易走錯</strong>：目的地是「北12条站」，下午去白色戀人需在「大通站」換乘東西線。</div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-volume" aria-hidden="true"></i>今日實用日語</div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問出口</div><div class="jp-main">5番出口はどちらですか？</div><div class="jp-reading">5 號出口是哪一個？</div></div><button class="speak-btn" onclick="speak('5番出口はどちらですか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">退稅</div><div class="jp-main">免税はできますか？</div><div class="jp-reading">可以退稅嗎？（購物滿¥5,000 可退稅）</div></div><button class="speak-btn" onclick="speak('免税はできますか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">DIY 體驗</div><div class="jp-main">チョコレート体験はできますか？</div><div class="jp-reading">可以參加巧克力 DIY 體驗嗎？</div></div><button class="speak-btn" onclick="speak('チョコレート体験はできますか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">試吃</div><div class="jp-main">試食してもいいですか？</div><div class="jp-reading">可以試吃嗎？</div></div><button class="speak-btn" onclick="speak('試食してもいいですか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
+    <div class="section-title">🍽️ 今日餐點（單人）</div>
+    <div class="meal-row"><div class="meal-tag lunch">午餐</div><div><div class="meal-name">🍱 北大生協食堂</div><div class="meal-desc">學生食堂，道産定食體驗｜單人約 <span class="price">¥900</span></div></div></div>
+    <div class="meal-row"><div class="meal-tag dinner">晚餐</div><div><div class="meal-name">🐑 松尾成吉思汗烤肉</div><div class="meal-desc">日本生命大樓 B1｜單人約 <span class="price">¥3,000</span></div></div></div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-map-pin" aria-hidden="true"></i>備用景點（至少 5 個）</div>
-    <div class="alt-grid">
-      <div class="alt-card"><div class="alt-card-name">🏟 札幌巨蛋（北海道日本火腿球場）</div><div class="alt-card-desc">距宮之澤可搭車前往，看棒球比賽或參觀球場設施。</div></div>
-      <div class="alt-card"><div class="alt-card-name">⛩ 北海道神宮</div><div class="alt-card-desc">初夏梅花盛開，免費參拜，附近有圓山動物園，氛圍清幽莊嚴。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🐻 円山動物園</div><div class="alt-card-desc">北海道最老牌動物園，有北極熊、北海道棕熊等特色動物，親子首選。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🏔 大倉山跳台滑雪場</div><div class="alt-card-desc">夏季可搭滑雪椅式纜車上展望台，俯瞰整個札幌，夕陽時分特別浪漫。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🍺 サッポロビール博物館</div><div class="alt-card-desc">札幌啤酒博物館，免費參觀（付費試飲），了解150年啤酒釀造歷史。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🌸 中島公園</div><div class="alt-card-desc">市中心公園，有日本庭園、池塘與音樂廳，散步放鬆最佳去處。</div></div>
-    </div>
+    <div class="section-title">🔊 今日日語</div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">要霜淇淋</div><div class="jp-main">ソフトクリームをひとつください。</div></div><button class="speak-btn" onclick="speak('ソフトクリームをひとつください',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">退稅</div><div class="jp-main">免税はできますか？</div></div><button class="speak-btn" onclick="speak('免税はできますか',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問博物館</div><div class="jp-main">総合博物館はどこですか？</div></div><button class="speak-btn" onclick="speak('総合博物館はどこですか',this)">🔊</button></div>
   </div>
 </div>
 
 <div id="day3" class="panel">
-  <div class="day-header">
-    <div>
-      <div class="day-badge">Day 3 ｜ 6/18 (四)</div>
-      <div class="day-title">🚗 10:00 取車 → 富良野森林精靈露台 → 唯我獨尊黑咖哩</div>
-      <div class="day-meta">09:45 前往 Times 札幌鐘樓店（創世廣場 B2） → 自駕約 2h15m → 富良野</div>
-    </div>
+  <div class="day-header"><div class="day-badge">Day 3 ｜ 6/18 (四)</div><div class="day-title">🚗 10:00 取車 → 四季彩の丘（美瑛） → 富良野</div><div class="day-meta">單人費用：約 ¥9,650〜（租車費已平分，不含住宿）</div></div>
+  <div class="section">
+    <div class="section-title">🗺️ Google Maps</div>
+    <a class="map-btn" href="https://maps.app.goo.gl/uqSb8PV3EoFLhqbP9" target="_blank">📍 Times 租車（創世廣場 B2）<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://maps.app.goo.gl/L5DnT3GnFyEG5oNq9" target="_blank">📍 四季彩の丘（美瑛）<span>點此開啟 Google Maps</span></a>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-route" aria-hidden="true"></i>取車流程與開車路線</div>
-    <div class="step"><div class="step-num">1</div><div class="step-content">09:45 從 Randor 飯店步行或地鐵至大通站，走「<strong>31 號地下出口</strong>」，直達「さっぽろ創世スクエア」大樓，搭手扶梯至 <strong>B2F Times 櫃檯</strong>。</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-content">出示台灣駕照、日文譯本、護照、憑證，<span class="highlight">務必申請 ETC 卡租借（¥330）</span>。確認合約保險，工作人員協助設定導航。</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-content">開車出庫：B2 出口插停車票，閘門開啟後沿圓弧車道上地面。導航設定<strong>新富良野王子飯店電話：0167-22-1111</strong>。</div></div>
-    <div class="step"><div class="step-num">4</div><div class="step-content">上「<strong>札幌IC</strong>」，走道央自動車道往旭川方向，在「<strong>瀧川IC</strong>」出高速（ETC 扣款）。左轉進國道38號線，穿過蘆別市直抵富良野。</div></div>
-    <div class="step"><div class="step-num">5</div><div class="step-content"><strong>森林精靈露台（ニングルテラス）</strong>：停車在新富良野王子飯店免費大停車場，步道入口就在旁邊。黃昏點燈後氣氛如夢似幻，建議 17:00 後再進去！</div></div>
-    <div class="step"><div class="step-num">6</div><div class="step-content">晚餐：<strong>唯我獨尊</strong>（日之出町 11-8 / 電話 0167-23-4584），對面有免費停車場。排招牌黑咖哩！<span class="highlight">免費續咖哩醬時，對店員說「ルールルル」即可！</span></div></div>
+    <div class="section-title">📍 行程 + 費用（單人）</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content">09:45 前往 Times B2F 取車。<span class="hl">租借 ETC 卡</span>（¥330，2人平分 = <span class="price">¥165/人</span>）。租車費每日2人平分約 <span class="price">¥4,000〜¥5,000/人</span>。</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content">上<strong>札幌北IC</strong> → 道央自動車道往旭川 → 「旭川鷹栖IC」出高速。過路費 2人平分約 <span class="price">¥1,400/人</span>，汽油 2人平分約 <span class="price">¥1,135/人</span>。</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>四季彩の丘</strong>：<span class="free">6月入場免費！</span>停車費 ¥500，2人平分 <span class="price">¥250/人</span>。</div></div>
+    <div class="route-box">⚠️ <strong>容易走錯</strong>：導航輸入電話「0166-95-2758」而非地名。出高速後沿導航開，勿跟景區巴士走。</div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-volume" aria-hidden="true"></i>今日實用日語</div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">租 ETC 卡</div><div class="jp-main">ETCカードのレンタルをお願いします。</div><div class="jp-reading">Ī-tī-shī kādo no rentaru wo onegai shimasu.</div></div><button class="speak-btn" onclick="speak('ETCカードのレンタルをお願いします')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">設定中文導航</div><div class="jp-main">カーナビを中国語に設定してください。</div><div class="jp-reading">請幫我將導航設定為中文。</div></div><button class="speak-btn" onclick="speak('カーナビを中国語に設定してください')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">🍛 唯我獨尊玩梗！免費續醬</div><div class="jp-main">ルールルル〜</div><div class="jp-reading">（拿起盤子對店員唱這個，即可免費續咖哩醬！）</div></div><button class="speak-btn" onclick="speak('ルールルル')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問停車場</div><div class="jp-main">無料の駐車場はありますか？</div><div class="jp-reading">有免費停車場嗎？</div></div><button class="speak-btn" onclick="speak('無料の駐車場はありますか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
+    <div class="section-title">🍽️ 今日餐點（單人）</div>
+    <div class="meal-row"><div class="meal-tag lunch">午餐</div><div><div class="meal-name">🌸 四季彩の丘 Garden Restaurant</div><div class="meal-desc">道産咖哩+冰淇淋｜單人約 <span class="price">¥1,200</span></div></div></div>
+    <div class="meal-row"><div class="meal-tag dinner">晚餐</div><div><div class="meal-name">🍛 唯我獨尊（黑咖哩）</div><div class="meal-desc">日之出町11-8，對面免費停車｜單人約 <span class="price">¥1,500</span>　<span class="hl">說「ルールルル」免費續醬！</span></div></div></div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-map-pin" aria-hidden="true"></i>富良野備用景點</div>
-    <div class="alt-grid">
-      <div class="alt-card"><div class="alt-card-name">🍀 富良野葡萄酒工廠</div><div class="alt-card-desc">免費參觀釀酒設施與酒窖，可試飲道産葡萄酒，附設餐廳。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🏔 富良野崗路纜車</div><div class="alt-card-desc">夏季也可乘坐，俯瞰富良野盆地全景，山頂有展望台。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🌲 富良野自然學校</div><div class="alt-card-desc">深林健行、獨木舟等戶外活動，探索原生態北海道自然景觀。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🧀 富良野乳製品工坊</div><div class="alt-card-desc">現場品嚐道産起司、冰淇淋、奶製品，新鮮直送，價格實惠。</div></div>
-      <div class="alt-card"><div class="alt-card-name">📺 北の国から撮影地</div><div class="alt-card-desc">日本國民電視劇拍攝地，五郎の石の家等場景，老粉絲聖地。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🌊 かなやま湖（金山湖）</div><div class="alt-card-desc">富良野南側的靜謐人工湖，湖畔露營區，秋季楓紅極美。</div></div>
-    </div>
+    <div class="section-title">🔊 今日日語</div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">租 ETC 卡</div><div class="jp-main">ETCカードのレンタルをお願いします。</div></div><button class="speak-btn" onclick="speak('ETCカードのレンタルをお願いします',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">設中文導航</div><div class="jp-main">カーナビを中国語に設定してください。</div></div><button class="speak-btn" onclick="speak('カーナビを中国語に設定してください',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">咖哩玩梗</div><div class="jp-main">ルールルル〜</div></div><button class="speak-btn" onclick="speak('ルールルル',this)">🔊</button></div>
   </div>
 </div>
 
 <div id="day4" class="panel">
-  <div class="day-header">
-    <div>
-      <div class="day-badge">Day 4 ｜ 6/19 (五)</div>
-      <div class="day-title">🪻 富田農場薰衣草 → 美瑛藍池 → Kumagera 生牛肉丼</div>
-      <div class="day-meta">導航：富田農場電話 0167-39-3939 → 從飯店約 15 分鐘</div>
-    </div>
+  <div class="day-header"><div class="day-badge">Day 4 ｜ 6/19 (五)</div><div class="day-title">🪻 富田農場 → 藍池 + 白鬚瀑布 → 生牛肉丼</div><div class="day-meta">單人費用：約 ¥9,280〜（租車費已平分，不含住宿）</div></div>
+  <div class="section">
+    <div class="section-title">🗺️ Google Maps</div>
+    <a class="map-btn" href="https://maps.app.goo.gl/FarmTomita" target="_blank">📍 富田農場（Farm Tomita）<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://maps.app.goo.gl/BlueIkePond" target="_blank">📍 白金青い池（藍池）<span>點此開啟 Google Maps</span></a>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-route" aria-hidden="true"></i>詳細路線步驟</div>
-    <div class="step"><div class="step-num">1</div><div class="step-content">從富良野 La Vista 飯店出發，右轉進<strong>國道 237 號線（往美瑛/旭川方向）</strong>向北直開。</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-content">穿過中富良野市區後，看到右手邊「町營薰衣草園吊椅」，前方大路口看到藍色「<strong>ファーム富田</strong>」大指標，左轉進小路，2 分鐘即達。免費停車，現場有人引導。</div></div>
-    <div class="tip-box">🪻 6月中旬：薰衣草已開始轉紫，早薰衣草（はやざき）最先盛開。Farm Tomita 有薰衣草霜淇淋、精油、乾燥花等限定商品。入場免費，各店舖各自收費。</div>
-    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>備用行程 — 美瑛白金青池</strong>（距農場約 30 分鐘）：導航「白金青い池」，這是一片會因光線呈現不同藍色的神秘湖水，6 月水量豐沛，景色壯觀。</div></div>
-    <div class="step"><div class="step-num">4</div><div class="step-content">晚餐：<strong>Kumagera（くまげら）</strong>（日の出町 3-22，電話 0167-39-2345），旁邊有免費停車場。必點「和牛ローストビーフ丼（生牛肉丼）」！</div></div>
+    <div class="section-title">📍 行程 + 費用（單人）</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>富田農場</strong>：<span class="free">免費入場！</span>停車免費。薰衣草霜淇淋 <span class="price">¥400</span>，精油/乾燥花等約 <span class="price">¥800〜</span>。汽油 2人平分 <span class="price">¥680/人</span>。</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>白鬚瀑布 → 藍池</strong>：<span class="free">免費</span>。停車協力金（自願）2人平分 <span class="price">¥100/人</span>。先看瀑布再開 1 分鐘到藍池，同一條路不需來回。</div></div>
+    <div class="route-box">⚠️ <strong>容易走錯</strong>：藍池停車場假日很滿，建議早去或午後人少時前往。</div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-volume" aria-hidden="true"></i>今日實用日語</div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問停車</div><div class="jp-main">ここに車を止めてもいいですか？</div><div class="jp-reading">這裡可以停車嗎？</div></div><button class="speak-btn" onclick="speak('ここに車を止めてもいいですか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">點餐推薦</div><div class="jp-main">おすすめはなんですか？</div><div class="jp-reading">你們的推薦是什麼？</div></div><button class="speak-btn" onclick="speak('おすすめはなんですか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">不辣</div><div class="jp-main">辛くないものをください。</div><div class="jp-reading">請給我不辣的。</div></div><button class="speak-btn" onclick="speak('辛くないものをください')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">買薰衣草商品</div><div class="jp-main">ラベンダーのお土産はありますか？</div><div class="jp-reading">有薰衣草的伴手禮嗎？</div></div><button class="speak-btn" onclick="speak('ラベンダーのお土産はありますか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
+    <div class="section-title">🍽️ 今日餐點（單人）</div>
+    <div class="meal-row"><div class="meal-tag lunch">午餐</div><div><div class="meal-name">🌸 富田農場 Farm Restaurant</div><div class="meal-desc">北海道蔬菜咖哩｜單人約 <span class="price">¥1,200</span></div></div></div>
+    <div class="meal-row"><div class="meal-tag dinner">晚餐</div><div><div class="meal-name">🥩 Kumagera 生牛肉丼</div><div class="meal-desc">日の出町3-22，旁邊免費停車｜單人約 <span class="price">¥2,500</span></div></div></div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-map-pin" aria-hidden="true"></i>富良野/美瑛備用景點</div>
-    <div class="alt-grid">
-      <div class="alt-card"><div class="alt-card-name">💙 美瑛白金青池</div><div class="alt-card-desc">北海道最夢幻景點，礦物質形成的神秘藍池，隨光線呈現不同色彩。距富田農場約30分鐘。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🌊 白ひげの滝（白鬚瀑布）</div><div class="alt-card-desc">涓涓細流從山壁湧入青池，上方有吊橋，與青池搭配是最佳組合。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🌾 美瑛丘陵（拼布之路）</div><div class="alt-card-desc">小麥、薰衣草、馬鈴薯等農作物形成天然拼布圖案，開車慢遊欣賞。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🐄 かんのファーム</div><div class="alt-card-desc">中富良野另一處花田農場，規模小但人少，薰衣草、向日葵輪替盛開。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🚂 ラベンダー畑駅（臨時站）</div><div class="alt-card-desc">JR 北海道夏季限定停靠的薰衣草田站，可拍火車與花田合影。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🍈 富良野哈密瓜工房</div><div class="alt-card-desc">道產哈密瓜直賣，可品嚐整顆哈密瓜餐，甜到爆炸！夏季限定。</div></div>
-    </div>
+    <div class="section-title">🔊 今日日語</div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">藍池方向</div><div class="jp-main">白金青い池はどこですか？</div></div><button class="speak-btn" onclick="speak('白金青い池はどこですか',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">薰衣草商品</div><div class="jp-main">ラベンダーのお土産はありますか？</div></div><button class="speak-btn" onclick="speak('ラベンダーのお土産はありますか',this)">🔊</button></div>
   </div>
 </div>
 
 <div id="day5" class="panel">
-  <div class="day-header">
-    <div>
-      <div class="day-badge">Day 5 ｜ 6/20 (六)</div>
-      <div class="day-title">🌋 南下洞爺湖 → 筒倉展望台 → 乃之風 Buffet + 煙火</div>
-      <div class="day-meta">長途橫貫 全程約 3h，建議高速服務區休息 → 導航筒倉展望台 0142-87-2221</div>
-    </div>
+  <div class="day-header"><div class="day-badge">Day 5 ｜ 6/20 (六)</div><div class="day-title">🌋 南下洞爺湖 → 筒倉展望台 → 乃之風 Buffet + 煙火</div><div class="day-meta">單人費用：約 ¥8,785〜（租車費已平分，不含住宿）</div></div>
+  <div class="section">
+    <div class="section-title">🗺️ Google Maps</div>
+    <a class="map-btn" href="https://maps.app.goo.gl/ToyaLakeObs" target="_blank">📍 筒倉展望台（サイロ展望台）<span>點此開啟 Google Maps</span></a>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-route" aria-hidden="true"></i>詳細路線步驟</div>
-    <div class="step"><div class="step-num">1</div><div class="step-content">從富良野 La Vista 退房，走國道38號往占冠方向，從「<strong>占冠IC</strong>」上道東自動車道，往千歲方向。</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-content">在「千歲惠庭JCT」轉道央自動車道（往室蘭/函館方向），一路向南，於「<strong>虻田洞爺湖IC</strong>」出高速（ETC 扣款）。</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-content">出交流道右轉進國道230號線往上山，開約10分鐘，右手邊看到木造賣店與招牌「<strong>サイロ展望台</strong>」，右轉進免費大停車場。</div></div>
-    <div class="step"><div class="step-num">4</div><div class="step-content"><strong>筒倉展望台</strong>：無死角俯瞰整個洞爺湖中島與噴火灣，天氣好可遠眺有珠山，是洞爺湖最佳拍照點。</div></div>
-    <div class="step"><div class="step-num">5</div><div class="step-content">下山約 15 分鐘抵達<strong>TOYA 乃之風度假村</strong>（電話 0142-75-2600）。15:00 進房，停在飯店免費停車場。晚上享用頂級 Buffet，室外欣賞洞爺湖夏季煙火秀！</div></div>
-    <div class="tip-box">🎆 洞爺湖煙火：每年 4/28 ~ 10/31 每晚 20:45 施放約 20 分鐘，從飯店露天浴池或湖畔都能欣賞，完全免費！這是日本最長的連續煙火之一。</div>
+    <div class="section-title">📍 行程 + 費用（單人）</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content">富良野→洞爺湖，高速公路過路費 2人平分 <span class="price">¥1,750/人</span>，汽油 2人平分 <span class="price">¥1,135/人</span>。建議在「追分町PA」休息吃東西。</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>筒倉展望台</strong>入場費 <span class="price">¥900/人</span>，停車免費。</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content">入住 TOYA 乃之風，停車免費。煙火每晚 20:45，<span class="free">免費</span>從飯店欣賞！</div></div>
+    <div class="route-box">⚠️ <strong>容易走錯</strong>：出「虻田洞爺湖IC」後<strong>右轉上山</strong>去展望台，不是往市區（左轉）！</div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-volume" aria-hidden="true"></i>今日實用日語</div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">飯店 check-in</div><div class="jp-main">こんにちは、宿泊客ですが、チェックインをお願いします。</div><div class="jp-reading">您好，我是住客，想辦理入住。</div></div><button class="speak-btn" onclick="speak('こんにちは、宿泊客ですが、チェックインをお願いします')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問停車場</div><div class="jp-main">駐車場はどこですか？</div><div class="jp-reading">請問停車場在哪裡？</div></div><button class="speak-btn" onclick="speak('駐車場はどこですか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問 Buffet 時間</div><div class="jp-main">夕食の時間は何時からですか？</div><div class="jp-reading">晚餐 Buffet 幾點開始？</div></div><button class="speak-btn" onclick="speak('夕食の時間は何時からですか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問煙火</div><div class="jp-main">花火はどこから見えますか？</div><div class="jp-reading">在哪裡可以看到煙火？</div></div><button class="speak-btn" onclick="speak('花火はどこから見えますか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
+    <div class="section-title">🍽️ 今日餐點（單人）</div>
+    <div class="meal-row"><div class="meal-tag lunch">午餐</div><div><div class="meal-name">🏪 高速服務區（SA）</div><div class="meal-desc">拉麵、丼飯｜單人約 <span class="price">¥1,000</span></div></div></div>
+    <div class="meal-row"><div class="meal-tag dinner">晚餐</div><div><div class="meal-name">🍽️ TOYA 乃之風 Buffet</div><div class="meal-desc">通常含於住宿方案｜單點約 <span class="price">¥4,000/人</span></div></div></div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-map-pin" aria-hidden="true"></i>洞爺湖備用景點</div>
-    <div class="alt-grid">
-      <div class="alt-card"><div class="alt-card-name">🌋 有珠山纜車</div><div class="alt-card-desc">登上2000年噴發的有珠山火山口展望台，俯瞰洞爺湖全景，景色震撼。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🛥 洞爺湖遊覽船</div><div class="alt-card-desc">搭船遊覽中島4座島嶼，有蝦夷鹿出沒，也可欣賞湖中煙火，全年運行。</div></div>
-      <div class="alt-card"><div class="alt-card-name">♨️ 登別溫泉地獄谷</div><div class="alt-card-desc">距洞爺湖約30分鐘，火山地熱奇景，硫磺泉池翻滾，色彩奇幻，免費參觀。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🏘 洞爺湖溫泉街</div><div class="alt-card-desc">湖畔小鎮有各種伴手禮店、足湯，晚上燈火倒映湖面，氣氛浪漫。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🗿 西山火口散策路</div><div class="alt-card-desc">2000年噴火留下的廢墟景觀，道路被岩漿推擠變形，自然力量令人震撼。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🏖 壯瞥公園（昭和新山）</div><div class="alt-card-desc">1943-45年間從農田突然隆起的新火山，全球罕見，旁邊有熊牧場。</div></div>
-    </div>
+    <div class="section-title">🔊 今日日語</div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">check-in</div><div class="jp-main">チェックインをお願いします。</div></div><button class="speak-btn" onclick="speak('チェックインをお願いします',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問煙火地點</div><div class="jp-main">花火はどこから見えますか？</div></div><button class="speak-btn" onclick="speak('花火はどこから見えますか',this)">🔊</button></div>
   </div>
 </div>
 
 <div id="day6" class="panel">
-  <div class="day-header">
-    <div>
-      <div class="day-badge">Day 6 ｜ 6/21 (日)</div>
-      <div class="day-title">🌊 羊蹄山景觀公路 → 小樽運河 → 壽司屋通海鮮</div>
-      <div class="day-meta">導航：小樽格蘭貝爾飯店 0134-23-4411 → 車程約 2h（沿途欣賞蝦夷富士）</div>
-    </div>
+  <div class="day-header"><div class="day-badge">Day 6 ｜ 6/21 (日)</div><div class="day-title">🌊 羊蹄山景觀公路 → 小樽運河 → 壽司屋通</div><div class="day-meta">單人費用：約 ¥11,295〜（租車費已平分，不含住宿）</div></div>
+  <div class="section">
+    <div class="section-title">🗺️ Google Maps</div>
+    <a class="map-btn" href="https://maps.app.goo.gl/OtaruCanal" target="_blank">📍 小樽運河中央橋<span>點此開啟 Google Maps</span></a>
+    <a class="map-btn" href="https://maps.app.goo.gl/OtaruSushi" target="_blank">📍 壽司屋通（寿司屋通り）<span>點此開啟 Google Maps</span></a>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-route" aria-hidden="true"></i>詳細路線步驟</div>
-    <div class="step"><div class="step-num">1</div><div class="step-content">從洞爺湖出發，走<strong>國道 230 號線</strong>向北。沿途路過留壽都，右手邊可遠眺「<strong>蝦夷富士（羊蹄山）</strong>」！若天氣好，在路邊停車拍照非常值得。</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-content">抵達喜茂別町後，依導航左轉進<strong>國道 393 號線</strong>（直通小樽的高山景觀公路），下山段可俯瞰整個小樽港灣，非常壯觀。</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-content">進入小樽市區沿臨港線開，看到<strong>小樽格蘭貝爾飯店</strong>轉入。<span class="highlight">注意：此飯店停車場收費（有料）</span>，請在櫃檯繳費並依人員指引停放。15:00 後入住。</div></div>
-    <div class="step"><div class="step-num">4</div><div class="step-content">換便鞋步行 3 分鐘至<strong>小樽運河中央橋</strong>。傍晚最美，煤氣燈點亮、運河倒映磚紅色倉庫，超級網美打卡點！</div></div>
-    <div class="step"><div class="step-num">5</div><div class="step-content">晚餐：沿運河步道往「<strong>壽司屋通（寿司屋通り）</strong>」走，這條街集結了小樽最優質的壽司店，推薦「政寿司」或「鮨 なかむら」，必點海膽（ウニ）與鮭魚卵（イクラ）。</div></div>
+    <div class="section-title">📍 行程 + 費用（單人）</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content">洞爺湖→小樽，走國道無高速費，汽油 2人平分 <span class="price">¥795/人</span>。</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content">小樽格蘭貝爾飯店停車費（有料），2人平分約 <span class="price">¥500/人/夜</span>。</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content">小樽運河：<span class="free">免費</span>散步。LeTAO 蛋糕+冰淇淋 約 <span class="price">¥1,000/人</span>。</div></div>
+    <div class="route-box">⚠️ <strong>容易走錯</strong>：喜茂別町左轉進「國道393號線」（山路）。下山後進市區走「臨港線」，別走進市區山路小巷。</div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-volume" aria-hidden="true"></i>今日實用日語</div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問停車費</div><div class="jp-main">駐車料金はいくらですか？</div><div class="jp-reading">停車費是多少錢？</div></div><button class="speak-btn" onclick="speak('駐車料金はいくらですか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">壽司店訂位</div><div class="jp-main">今夜、予約できますか？二人です。</div><div class="jp-reading">今晚可以訂位嗎？兩個人。</div></div><button class="speak-btn" onclick="speak('今夜、予約できますか？二人です。')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">點海膽</div><div class="jp-main">うにをください。</div><div class="jp-reading">請給我海膽。</div></div><button class="speak-btn" onclick="speak('うにをください')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問拍照</div><div class="jp-main">写真を撮ってもいいですか？</div><div class="jp-reading">可以拍照嗎？</div></div><button class="speak-btn" onclick="speak('写真を撮ってもいいですか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">有料停車</div><div class="jp-main">駐車券をください。</div><div class="jp-reading">請給我停車券。</div></div><button class="speak-btn" onclick="speak('駐車券をください')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
+    <div class="section-title">🍽️ 今日餐點（單人）</div>
+    <div class="meal-row"><div class="meal-tag lunch">午餐</div><div><div class="meal-name">🧀 LeTAO 本店</div><div class="meal-desc">雙層乳酪蛋糕+限定冰淇淋｜單人約 <span class="price">¥1,000</span></div></div></div>
+    <div class="meal-row"><div class="meal-tag dinner">晚餐</div><div><div class="meal-name">🍣 壽司屋通（政寿司等）</div><div class="meal-desc">海膽+鮭魚卵，頂級壽司｜單人約 <span class="price">¥5,000</span></div></div></div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-map-pin" aria-hidden="true"></i>小樽備用景點</div>
-    <div class="alt-grid">
-      <div class="alt-card"><div class="alt-card-name">🔮 小樽玻璃工藝館</div><div class="alt-card-desc">北一硝子三号館等玻璃工藝店，可購買精美玻璃伴手禮，也有吹玻璃 DIY。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🎸 童話十字路口（メルヘン交差点）</div><div class="alt-card-desc">小樽最美街角，各式音樂盒老鋪、煤氣燈，夜晚燈光亮起特別浪漫。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🍷 小樽倉庫 No.1</div><div class="alt-card-desc">百年磚造倉庫改建的餐廳，釀造小樽限定啤酒，用餐環境超有氛圍。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🌊 積丹半島（日本海藍）</div><div class="alt-card-desc">夏季必去！全日本最透明的「積丹藍」海水，可搭船觀賞海蝕洞穴。距小樽約45分鐘。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🍦 LeTAO 本店</div><div class="alt-card-desc">「雙層乳酪蛋糕」發源地，堺町通本店可品嚐現做蛋糕與限定口味冰淇淋。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🚂 小樽市綜合博物館</div><div class="alt-card-desc">保存蒸汽火車與北海道開拓歷史，可乘坐迷你蒸汽火車，大人小孩都喜歡。</div></div>
-    </div>
+    <div class="section-title">🔊 今日日語</div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問停車費</div><div class="jp-main">駐車料金はいくらですか？</div></div><button class="speak-btn" onclick="speak('駐車料金はいくらですか',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">壽司訂位</div><div class="jp-main">今夜、予約できますか？二人です。</div></div><button class="speak-btn" onclick="speak('今夜、予約できますか。二人です。',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">點海膽</div><div class="jp-main">うにをください。</div></div><button class="speak-btn" onclick="speak('うにをください',this)">🔊</button></div>
   </div>
 </div>
 
 <div id="day7" class="panel">
-  <div class="day-header">
-    <div>
-      <div class="day-badge">Day 7 ｜ 6/22 (一)</div>
-      <div class="day-title">🔑 10:00 前還車 → ANA 皇冠 → 大丸&Stellar Place 血拼</div>
-      <div class="day-meta">08:45 出發 → 先加油 → 還車（創世廣場 B2） → 步行至 ANA 皇冠假日酒店</div>
-    </div>
+  <div class="day-header"><div class="day-badge">Day 7 ｜ 6/22 (一)</div><div class="day-title">🔑 還車 → 北海道神宮 → ANA 皇冠 → 大丸血拼</div><div class="day-meta">單人費用：約 ¥11,230〜（租車費已平分，不含採購）</div></div>
+  <div class="section">
+    <div class="section-title">🗺️ Google Maps</div>
+    <a class="map-btn" href="https://maps.app.goo.gl/HokkaidoJingu" target="_blank">📍 北海道神宮<span>點此開啟 Google Maps</span></a>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-route" aria-hidden="true"></i>還車詳細步驟（極重要！）</div>
-    <div class="step"><div class="step-num">1</div><div class="step-content">08:45 從小樽飯店出發，導航設 Times 門市電話 <strong>011-252-3939</strong>。上札樽自動車道，從「<strong>札幌北IC</strong>」下高速，往大通公園方向開。</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-content"><span class="highlight">最後加油（強制！）</span>：抵達門市前 1-2 公里找 ENEOS 或 IDEMITSU 加油站。說「<strong>レギュラー満タン</strong>」。務必索取紙本收據，並拍下油表照片。</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-content">開進「さっぽろ創世スクエア」地下停車場入口，<span class="highlight">絕對要按「レンタカー返却専用（藍色/黃色）按鈕」！不要抽一般計時停車票！</span></div></div>
-    <div class="step"><div class="step-num">4</div><div class="step-content">降至 B2F，停入 Times 專屬區。工作人員檢查車況、核對加油收據、讀 ETC 卡，現場刷卡結清過路費完成還車。</div></div>
-    <div class="step"><div class="step-num">5</div><div class="step-content">從 B2 電梯回地面，往正北方向步行 3-4 分鐘（約 2 個街區），看到白色建築即 <strong>ANA 皇冠假日酒店</strong>。10:30 先寄放行李。</div></div>
-    <div class="step"><div class="step-num">6</div><div class="step-content">步行 5 分鐘進入 <strong>JR 札幌站商圈</strong>：大丸百貨（高階化妝品退稅）、Stellar Place（日系服飾）、PARCO（潮流品牌）。</div></div>
+    <div class="section-title">📍 行程 + 費用（單人）</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content">小樽→札幌高速，2人平分 <span class="price">¥400/人</span>。還車前加滿油，2人平分約 <span class="price">¥1,500/人</span>。<span class="hl">務必按「レンタカー返却専用」藍色按鈕！</span></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content">地鐵東西線至「円山公園站」，步行 15 分鐘至<strong>北海道神宮</strong>。地鐵費 <span class="price">¥210/趟</span>。</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content">北海道神宮：<span class="free">免費參拜</span>。境內<strong>六花亭茶屋</strong> 福レ餅 <span class="price">¥110/支</span>（境內限定！）。御朱印 <span class="price">¥500</span>（自願）。</div></div>
+    <div class="route-box">⚠️ <strong>容易走錯</strong>：加油要在距門市 1-2km 前完成，進停車場一定要按<strong>藍色「レンタカー返却専用」按鈕</strong>！</div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-volume" aria-hidden="true"></i>今日實用日語</div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">🅿️ 加油 — 加滿</div><div class="jp-main">レギュラー、満タンでお願いします。クレジットカードで。</div><div class="jp-reading">Regular，加滿，用信用卡付款。</div></div><button class="speak-btn" onclick="speak('レギュラー、満タンでお願いします。クレジットカードで。')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">索取收據</div><div class="jp-main">領収書をください。</div><div class="jp-reading">請給我收據。</div></div><button class="speak-btn" onclick="speak('領収書をください')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">還車</div><div class="jp-main">レンタカーの返却です。</div><div class="jp-reading">我要還租來的車。</div></div><button class="speak-btn" onclick="speak('レンタカーの返却です')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">寄放行李</div><div class="jp-main">荷物を預かってもらえますか？</div><div class="jp-reading">可以幫我暫時寄放行李嗎？</div></div><button class="speak-btn" onclick="speak('荷物を預かってもらえますか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
+    <div class="section-title">🍽️ 今日餐點（單人）</div>
+    <div class="meal-row"><div class="meal-tag lunch">午餐</div><div><div class="meal-name">🍡 神宮茶屋 福レ餅 + 境內小吃</div><div class="meal-desc">境內限定串糰子｜單人約 <span class="price">¥800</span></div></div></div>
+    <div class="meal-row"><div class="meal-tag dinner">晚餐</div><div><div class="meal-name">🦞 浜っ子 海鮮居酒屋</div><div class="meal-desc">北1條西3-3，步行3-5分鐘｜單人約 <span class="price">¥4,000</span></div></div></div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-map-pin" aria-hidden="true"></i>札幌站周邊備用景點</div>
-    <div class="alt-grid">
-      <div class="alt-card"><div class="alt-card-name">🌃 JR タワー展望室 T38</div><div class="alt-card-desc">JR 塔頂樓 38 樓展望室，360 度俯瞰札幌全景，日夜景色皆美。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🛍 PASEO 購物中心</div><div class="alt-card-desc">JR 札幌站直通地下商場，日系服裝、雜貨、美食一應俱全。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🏛 北海道廳舊本廳舍（赤煉瓦）</div><div class="alt-card-desc">步行5分鐘，磚紅色美麗建築，免費參觀，內有北海道歷史展。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🌿 北海道大學植物園</div><div class="alt-card-desc">明治時代開設的植物園，6月玫瑰盛開，票價¥420，歷史感十足。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🍺 Sapporo Factory 購物中心</div><div class="alt-card-desc">舊札幌啤酒廠改建，玻璃屋頂特別，有餐廳、電影院，假日市集常駐。</div></div>
-    </div>
+    <div class="section-title">🔊 今日日語</div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">加油加滿</div><div class="jp-main">レギュラー、満タンでお願いします。クレジットカードで。</div></div><button class="speak-btn" onclick="speak('レギュラー、満タンでお願いします。クレジットカードで。',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">索取收據</div><div class="jp-main">領収書をください。</div></div><button class="speak-btn" onclick="speak('領収書をください',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">還車</div><div class="jp-main">レンタカーの返却です。</div></div><button class="speak-btn" onclick="speak('レンタカーの返却です',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">蓋御朱印</div><div class="jp-main">御朱印をいただけますか？</div></div><button class="speak-btn" onclick="speak('御朱印をいただけますか',this)">🔊</button></div>
   </div>
 </div>
 
 <div id="day8" class="panel">
-  <div class="day-header">
-    <div>
-      <div class="day-badge">Day 8 ｜ 6/23 (二)</div>
-      <div class="day-title">🛍 大通電視塔 → 狸小路 MEGA 唐吉訶德大掃貨 → 湯咖哩</div>
-      <div class="day-meta">今天完全不用開車！走地下連通道 Space Walk 直達各景點</div>
-    </div>
+  <div class="day-header"><div class="day-badge">Day 8 ｜ 6/23 (二)</div><div class="day-title">🛍 電視塔 → 狸小路 MEGA 唐吉訶德 → 湯咖哩</div><div class="day-meta">單人費用（不含採購）：約 ¥4,800</div></div>
+  <div class="section">
+    <div class="section-title">📍 行程 + 費用（單人）</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content">走地下連通道 Space Walk，不需搭地鐵！<strong>札幌電視塔展望台</strong> <span class="price">¥800/人</span>。</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content">狸小路藥妝攻略：<strong>SUNDRUG → 松本清 → 大国藥妝 → 札幌藥妝 → MEGA 唐吉訶德（24h）</strong>。藥妝掃貨估 <span class="price">¥5,000〜¥25,000/人</span>（視個人）。</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content">採購後攔計程車送戰利品回飯店，2人平分 <span class="price">¥500/人</span>。</div></div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-route" aria-hidden="true"></i>詳細路線步驟</div>
-    <div class="step"><div class="step-num">1</div><div class="step-content">從 ANA 飯店下樓，進入「<strong>札幌地下連通道 Space Walk</strong>」（完全防曬、防雨的超長地下街，直連札幌站-大通站-薄野站）。往南步行約 7 分鐘至電視塔 B1 入口。</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>札幌電視塔展望台</strong>：高 90.38m，可俯瞰整條大通公園綠帶與街道。門票¥800（16歲以上），已入選「日本夜景遺產」。</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-content">從電視塔走地下街 3 分鐘至<strong>狸小路商店街</strong>（1-7 丁目）：2丁目 SUNDRUG、3丁目 松本清（兩家）、4-5丁目 大国藥妝、5丁目 札幌藥妝（大王店）。</div></div>
-    <div class="step"><div class="step-num">4</div><div class="step-content">重點攻略：<strong>MEGA 唐吉訶德（狸小路 3 丁目）</strong>24 小時大賣場，零食、保養品、生活雜貨應有盡有，價格比一般藥妝更有彈性。</div></div>
-    <div class="step"><div class="step-num">5</div><div class="step-content">下午採購完畢後，在路邊攔計程車（Taxi），把戰利品送回飯店，車資約 ¥1,000，省時省力！</div></div>
-    <div class="step"><div class="step-num">6</div><div class="step-content">晚餐：<strong>Suage+ 湯咖哩</strong>（薄野）或<strong>GARAKU 湯咖哩</strong>，北海道特有濃郁湯底，可選辣度，必點雞腿湯咖哩！</div></div>
+    <div class="section-title">🍽️ 今日餐點（單人）</div>
+    <div class="meal-row"><div class="meal-tag lunch">午餐</div><div><div class="meal-name">🍜 拉麵共和國（JR塔10F）</div><div class="meal-desc">北海道8家人氣拉麵｜單人約 <span class="price">¥1,500</span></div></div></div>
+    <div class="meal-row"><div class="meal-tag dinner">晚餐</div><div><div class="meal-name">🍲 GARAKU 湯咖哩</div><div class="meal-desc">薄野，自選辣度1-10｜單人約 <span class="price">¥2,000</span></div></div></div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-volume" aria-hidden="true"></i>今日實用日語</div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">免稅包裝</div><div class="jp-main">免税の梱包をお願いします。</div><div class="jp-reading">請幫我包裝成免稅的形式（密封袋）。</div></div><button class="speak-btn" onclick="speak('免税の梱包をお願いします')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">搭計程車</div><div class="jp-main">このホテルまでお願いします。</div><div class="jp-reading">請帶我到這家飯店（出示地址）。</div></div><button class="speak-btn" onclick="speak('このホテルまでお願いします')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">湯咖哩辣度</div><div class="jp-main">辛さは3番でお願いします。</div><div class="jp-reading">請給我 3 號辣度（可換數字 1-10）。</div></div><button class="speak-btn" onclick="speak('辛さは3番でお願いします')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">結帳</div><div class="jp-main">お会計をお願いします。</div><div class="jp-reading">請幫我結帳。</div></div><button class="speak-btn" onclick="speak('お会計をお願いします')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-  </div>
-  <div class="section">
-    <div class="section-title"><i class="ti ti-map-pin" aria-hidden="true"></i>備用景點</div>
-    <div class="alt-grid">
-      <div class="alt-card"><div class="alt-card-name">🏙 COCONO SUSUKINO</div><div class="alt-card-desc">薄野最新商場，頂樓有全球最北端的摩天輪「NORIA」，視野超棒！</div></div>
-      <div class="alt-card"><div class="alt-card-name">🎨 札幌藝術之森</div><div class="alt-card-desc">戶外雕塑公園，展示國際藝術家作品，可在森林中欣賞藝術，非常特別。</div></div>
-      <div class="alt-card"><div class="alt-card-name">⛷ 大倉山展望台</div><div class="alt-card-desc">從跳台滑雪場搭椅式纜車上展望台，俯瞰札幌，傍晚夜景極美。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🍜 拉麵共和國（RAMEN REPUBLIC）</div><div class="alt-card-desc">JR 塔 10 樓，集結北海道各地8家人氣拉麵店，一次嚐遍不同風格。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🎭 北海道立近代美術館</div><div class="alt-card-desc">館藏北海道本地藝術家作品，建築本身也很有設計感，步行可達。</div></div>
-    </div>
+    <div class="section-title">🔊 今日日語</div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">免稅包裝</div><div class="jp-main">免税の梱包をお願いします。</div></div><button class="speak-btn" onclick="speak('免税の梱包をお願いします',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">湯咖哩辣度</div><div class="jp-main">辛さは3番でお願いします。</div></div><button class="speak-btn" onclick="speak('辛さは3番でお願いします',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">結帳</div><div class="jp-main">お会計をお願いします。</div></div><button class="speak-btn" onclick="speak('お会計をお願いします',this)">🔊</button></div>
   </div>
 </div>
 
 <div id="day9" class="panel">
-  <div class="day-header">
-    <div>
-      <div class="day-badge">Day 9 ｜ 6/24 (三)</div>
-      <div class="day-title">🍣 晨間海鮮丼 → 機場國內線最後爆買 → 16:15 返台</div>
-      <div class="day-meta">⚠️ 回程班機 IT234 16:15（國際線 Terminal I）→ 13:45 前務必到機場</div>
-    </div>
+  <div class="day-header"><div class="day-badge">Day 9 ｜ 6/24 (三)</div><div class="day-title">🍣 二條市場 → 機場最後爆買 → 16:15 IT234 返台</div><div class="day-meta">單人費用（不含伴手禮）：約 ¥5,130　⚠️ 12:45 前搭上快速機場號！</div></div>
+  <div class="section">
+    <div class="section-title">⏰ 精準時間 + 費用（單人）</div>
+    <div class="step"><div class="step-num">1</div><div class="step-content">計程車至二條市場，2人平分 <span class="price">¥400/人</span>。</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content">早午餐：<strong>丼兵衛海鮮丼</strong>（鮭魚卵+海膽+鮭魚）單人約 <span class="price">¥2,500</span>。</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><span class="hl">12:45 前在 JR 札幌站（5、6號月台）搭「快速エアポート」</span>，票價 <span class="price">¥1,230/人</span>。</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content">辦完登機，衝「國內線 2 樓商店街」最後掃貨！伴手禮估 <span class="price">¥3,000〜¥10,000/人</span>。<span class="hl">直接帶上飛機！</span></div></div>
+    <div class="warn-box">⏰ 12:45 搭車是底線，建議 12:15 出發更從容！</div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-route" aria-hidden="true"></i>精準時間表（不能遲到！）</div>
-    <div class="step"><div class="step-num">1</div><div class="step-content">08:30 ANA 飯店退房，行李寄放櫃檯（或提前一天拿好）。步行 12-15 分鐘（或搭計程車 5 分鐘）至「<strong>二條市場（にじょういちば）</strong>」。</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-content">早餐：<strong>二條市場 丼兵衛</strong>，豪華海鮮丼（鮭魚卵+海膽+鮭魚），約 ¥2,000-3,000，是北海道美食的完美句點！</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-content"><span class="highlight">12:45 前在 JR 札幌站（5、6 號月台）搭上「快速エアポート」</span>→ 車程 37 分鐘 → 13:22 抵達新千歲機場 B1。</div></div>
-    <div class="step"><div class="step-num">4</div><div class="step-content">先至「<strong>3 樓國際線</strong>」辦理登機＋行李託運。完成後，立刻衝去「<strong>國內線 2 樓商店街</strong>」最後大掃貨！</div></div>
-    <div class="step"><div class="step-num">5</div><div class="step-content">必掃：六花亭・LeTAO・北菓樓・Calbee薯條三兄弟・Royce'巧克力。<span class="highlight">在此購買可直接提上飛機，不佔行李箱！</span></div></div>
-    <div class="step"><div class="step-num">6</div><div class="step-content">15:45 前進入國際線登機門，搭乘 16:15 <strong>IT234</strong> 班機返台！</div></div>
-    <div class="warn-box">⏰ 時間緊！12:45 搭車是底線，超過將趕不上飛機。如果早餐提早吃完，可考慮 12:15 就去搭車，在機場多留時間購物更從容。</div>
+    <div class="section-title">🍽️ 今日餐點（單人）</div>
+    <div class="meal-row"><div class="meal-tag lunch">早午餐</div><div><div class="meal-name">🍣 二條市場 丼兵衛</div><div class="meal-desc">豪華海鮮三重奏｜單人約 <span class="price">¥2,500</span></div></div></div>
+    <div class="meal-row"><div class="meal-tag dinner">機場</div><div><div class="meal-name">✈️ 新千歲機場美食街</div><div class="meal-desc">拉麵、螃蟹丼｜單人約 <span class="price">¥1,000</span></div></div></div>
   </div>
   <div class="section">
-    <div class="section-title"><i class="ti ti-volume" aria-hidden="true"></i>今日實用日語</div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">取行李</div><div class="jp-main">預けた荷物をお願いします。</div><div class="jp-reading">我要取回寄放的行李。</div></div><button class="speak-btn" onclick="speak('預けた荷物をお願いします')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">搭計程車</div><div class="jp-main">JR札幌駅までお願いします。</div><div class="jp-reading">請帶我去 JR 札幌站。</div></div><button class="speak-btn" onclick="speak('JR札幌駅までお願いします')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問登機口</div><div class="jp-main">搭乗ゲートはどこですか？</div><div class="jp-reading">登機門在哪裡？</div></div><button class="speak-btn" onclick="speak('搭乗ゲートはどこですか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">伴手禮</div><div class="jp-main">北海道限定のお土産はどこですか？</div><div class="jp-reading">北海道限定伴手禮在哪裡賣？</div></div><button class="speak-btn" onclick="speak('北海道限定のお土産はどこですか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-  </div>
-  <div class="section">
-    <div class="section-title"><i class="ti ti-shopping-bag" aria-hidden="true"></i>新千歲機場必掃伴手禮清單</div>
-    <div class="alt-grid">
-      <div class="alt-card"><div class="alt-card-name">🌸 六花亭</div><div class="alt-card-desc">蘭姆葡萄奶油夾心餅乾（マルセイバターサンド）。限定款禮盒買來自用或送禮都完美。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🧀 LeTAO</div><div class="alt-card-desc">小樽著名雙層乳酪蛋糕（ドゥーブルフロマージュ），需冷藏，機場有保冷袋服務。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🎂 北菓樓</div><div class="alt-card-desc">開拓年輪蛋糕（開拓おかき）和北海道限定泡芙，保存期限較長，適合送禮。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🥔 Calbee</div><div class="alt-card-desc">薯條三兄弟（じゃがポックル），北海道馬鈴薯製成，特別脆口，全日本只有北海道才買得到。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🍫 Royce'</div><div class="alt-card-desc">生巧克力（生チョコレート），道産牛奶製作，口感綿密入口即化。需冷藏，買最後再提。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🐄 白色戀人</div><div class="alt-card-desc">石屋製菓的夾心餅乾，是北海道最經典伴手禮，機場有限定禮盒款。</div></div>
-    </div>
+    <div class="section-title">🔊 今日日語</div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">取回行李</div><div class="jp-main">預けた荷物をお願いします。</div></div><button class="speak-btn" onclick="speak('預けた荷物をお願いします',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">問登機口</div><div class="jp-main">搭乗ゲートはどこですか？</div></div><button class="speak-btn" onclick="speak('搭乗ゲートはどこですか',this)">🔊</button></div>
   </div>
 </div>
 
+<!-- ===== SHOP ===== -->
 <div id="shop" class="panel">
   <div class="section">
-    <div class="section-title"><i class="ti ti-pill" aria-hidden="true"></i>狸小路藥妝店比較（最便宜攻略）</div>
-    <table class="shop-table">
-      <tr><th>藥妝店</th><th>位置</th><th>特色</th><th>建議</th></tr>
-      <tr><td><strong>大国藥妝（ダイコク）</strong></td><td>4-5丁目</td><td>食品、日用品豐富，美妝較少</td><td class="best">💰 價格最低！大量購買首選</td></tr>
-      <tr><td><strong>SUNDRUG 尚都樂客</strong></td><td>2丁目 & 4丁目</td><td>自創品牌眼藥水、貼布，有中文標示</td><td class="best">💰 CP值最高，推薦</td></tr>
-      <tr><td><strong>札幌藥妝（Satudora）</strong></td><td>5丁目大王店</td><td>3F 近似超市，飲料冰淇淋便宜</td><td>北海道限定商品多</td></tr>
-      <tr><td><strong>KoKuMiN 國民</strong></td><td>3丁目(2家)+5丁目</td><td>藥品、保健食品齊全</td><td>適合採購藥品類</td></tr>
-      <tr><td><strong>松本清（マツキヨ）</strong></td><td>3丁目(2家)</td><td>電子鍋、保溫瓶、免治馬桶</td><td>價格稍高但商品最齊全</td></tr>
-      <tr><td><strong>MEGA 唐吉訶德</strong></td><td>3丁目</td><td>24h，種類最多，零食/生活用品</td><td>深夜採購好選擇</td></tr>
-    </table>
-    <div class="tip-box">💡 退稅攻略：購物滿¥5,000 即可退稅（須持護照辦理），部分店家滿額還有折上折！記得把護照帶在身上。</div>
+    <div class="section-title">💊 藥妝店比較</div>
+    <div class="table-wrap"><table class="rt">
+      <tr><th>店名</th><th>位置</th><th>特色</th><th>折扣</th></tr>
+      <tr><td><strong>大国藥妝</strong></td><td>4-5丁目</td><td>食品日用品豐富</td><td class="best">💰 價格最低</td></tr>
+      <tr><td><strong>SUNDRUG</strong></td><td>2&4丁目</td><td>自創品牌眼藥水</td><td class="best">退稅+92折券</td></tr>
+      <tr><td><strong>札幌藥妝</strong></td><td>5丁目大王</td><td>北海道限定多</td><td>退稅+5%折扣券</td></tr>
+      <tr><td><strong>MEGA唐吉訶德</strong></td><td>3丁目</td><td>24h，種類最多</td><td>外國人5%折</td></tr>
+    </table></div>
+    <div class="tip-box">💡 退稅滿¥5,000 可享 10% 免稅，搭配優惠券可再省 5-8%！</div>
   </div>
-
   <div class="section">
-    <div class="section-title"><i class="ti ti-shopping-cart" aria-hidden="true"></i>🧴 藥妝必買清單</div>
-    <div class="alt-grid">
-      <div class="alt-card"><div class="alt-card-name">💊 救心</div><div class="alt-card-desc">心悸、頭暈急救用，天然草藥成分，台灣很難買到，一定要買！</div></div>
-      <div class="alt-card"><div class="alt-card-name">👁 小花眼藥水</div><div class="alt-card-desc">ロート製薬，清涼感 vs 滋潤型可選，在 SUNDRUG 最便宜（約¥511）。</div></div>
-      <div class="alt-card"><div class="alt-card-name">😴 花王蒸氣眼罩</div><div class="alt-card-desc">めぐリズム，12入約¥1,078，各家價格差不多，建議多帶幾盒。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🦴 北海道馬油</div><div class="alt-card-desc">北海道限定版，保濕效果極佳，乾燥皮膚首選，比台灣便宜許多。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🦷 小紅管牙膏</div><div class="alt-card-desc">Clean Dental 人氣牙膏，日本限定香味，牙齦保護效果好評如潮。</div></div>
-      <div class="alt-card"><div class="alt-card-name">💉 MINON 保養</div><div class="alt-card-desc">敏感肌首選，化妝水+乳液，機場跟狸小路都有，記得比價。</div></div>
-    </div>
+    <div class="section-title">👟 買鞋推薦（含價位）</div>
+    <div class="table-wrap"><table class="rt">
+      <tr><th>店名</th><th>位置</th><th>價位（單人）</th></tr>
+      <tr><td><strong>ABC-MART Grand Stage</strong></td><td>Stellar Place</td><td>¥5,000〜¥20,000</td></tr>
+      <tr><td><strong>東京靴流通センター</strong></td><td>狸小路2丁目</td><td class="best">¥2,000〜¥6,000（最平價）</td></tr>
+      <tr><td><strong>RANDA（日系女鞋）</strong></td><td>Stellar Place</td><td>¥5,000〜¥15,000</td></tr>
+    </table></div>
+    <div class="tip-box">💡 台灣24 = 日本240，試穿時說「24センチ」</div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">試穿鞋</div><div class="jp-main">この靴、24センチで試着できますか？</div></div><button class="speak-btn" onclick="speak('この靴、24センチで試着できますか',this)">🔊</button></div>
+    <div class="jp-phrase"><div class="jp-text"><div class="jp-label">別的尺寸</div><div class="jp-main">別のサイズはありますか？</div></div><button class="speak-btn" onclick="speak('別のサイズはありますか',this)">🔊</button></div>
   </div>
+</div>
 
-  <div class="section">
-    <div class="section-title"><i class="ti ti-shoe" aria-hidden="true"></i>買鞋子推薦地點（札幌）</div>
-    <table class="shop-table">
-      <tr><th>店名</th><th>位置</th><th>特色</th></tr>
-      <tr><td><strong>ABC-MART Grand Stage</strong></td><td>Stellar Place（JR 塔内）</td><td>NIKE、adidas、New Balance 最新款，旗艦規模最大</td></tr>
-      <tr><td><strong>ABC-MART Sports</strong></td><td>Stellar Place 另一區</td><td>以運動鞋為主，限定聯名款較多</td></tr>
-      <tr><td><strong>ABC-MART 狸小路店</strong></td><td>狸小路 3 丁目</td><td>地鐵通道即達，2層樓，價格親民，VANS/CONVERSE齊全</td></tr>
-      <tr><td><strong>ABC-MART さっぽろ店</strong></td><td>東急百貨（薄野）</td><td>女鞋/男鞋種類多，Hawkins Sports 系列</td></tr>
-      <tr><td><strong>東京靴流通センター</strong></td><td>狸小路 2 丁目</td><td class="best">💰 平價鞋類超市，日常休閒鞋最便宜</td></tr>
-      <tr><td><strong>RANDA（蘭達）</strong></td><td>Stellar Place</td><td>日系女鞋品牌，設計感強，送禮自用兩相宜</td></tr>
-    </table>
-    <div class="tip-box">💡 小提醒：日本鞋碼對照 → 台灣 23.5 = 日本 235，台灣 24 = 日本 240。試穿時可說「足のサイズは24センチです（我的腳是24公分）」。</div>
-    <div class="jp-phrase" style="margin-top:8px"><div class="jp-text"><div class="jp-label">試穿鞋子</div><div class="jp-main">この靴を試着してもいいですか？サイズは24センチです。</div><div class="jp-reading">可以試穿這雙鞋嗎？我的尺寸是 24 公分。</div></div><button class="speak-btn" onclick="speak('この靴を試着してもいいですか？サイズは24センチです')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
-    <div class="jp-phrase" style="margin-top:4px"><div class="jp-text"><div class="jp-label">問有沒有別的尺寸</div><div class="jp-main">別のサイズはありますか？</div><div class="jp-reading">有其他尺寸嗎？</div></div><button class="speak-btn" onclick="speak('別のサイズはありますか')"><i class="ti ti-volume" aria-hidden="true"></i>播放</button></div>
+<!-- ===== OMIYAGE ===== -->
+<div id="omiyage" class="panel">
+  <div class="day-header">
+    <div class="day-badge">必買清單</div>
+    <div class="day-title">🎁 北海道伴手禮 + 單人價格參考</div>
+    <div class="day-meta">機場、狸小路、各景點採買時機</div>
   </div>
-
   <div class="section">
-    <div class="section-title"><i class="ti ti-map-2" aria-hidden="true"></i>購物區域總覽</div>
-    <div class="alt-grid">
-      <div class="alt-card"><div class="alt-card-name">🏬 大丸百貨</div><div class="alt-card-desc">JR 塔地下連通，高端化妝品、精品、食品伴手禮，可辦退稅，服務細緻。</div></div>
-      <div class="alt-card"><div class="alt-card-name">⭐ Stellar Place</div><div class="alt-card-desc">JR 塔內，日系潮流服飾、鞋子、雜貨，ABC-MART 旗艦就在裡面。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🎯 狸小路 1-7 丁目</div><div class="alt-card-desc">藥妝戰場，全區有拱廊不怕下雨，從便宜到高端各種藥妝、雜貨密集。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🎪 PARCO 札幌</div><div class="alt-card-desc">年輕潮流品牌、聯名商品，ABC-MART、無印良品皆在內。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🍊 宮之澤 SEIYU</div><div class="alt-card-desc">白色戀人公園回程必逛，超市價格最便宜，日用品、鮮乳、零食採購首選。</div></div>
-      <div class="alt-card"><div class="alt-card-name">🌙 MEGA 唐吉訶德</div><div class="alt-card-desc">24 小時，零食批發價，驚安殿堂，從貓咪零食到電器通通有，宵夜後也能買！</div></div>
-    </div>
+    <div class="section-title">🏆 甜點伴手禮（含價格）</div>
+    <div class="table-wrap"><table class="rt">
+      <tr><th>商品</th><th>單人參考價</th><th>購買地點</th></tr>
+      <tr><td>六花亭 マルセイバターサンド 9入</td><td class="price">¥1,188</td><td>機場、狸小路</td></tr>
+      <tr><td>LeTAO 雙層乳酪蛋糕（整盒）</td><td class="price">¥3,024</td><td>小樽本店、機場</td></tr>
+      <tr><td>Calbee 薯條三兄弟 18入</td><td class="price">¥918</td><td>機場、唐吉訶德</td></tr>
+      <tr><td>Royce' 生巧克力 20入</td><td class="price">¥864</td><td>機場、百貨</td></tr>
+      <tr><td>白色戀人 18片</td><td class="price">¥1,512</td><td>機場、白色戀人公園</td></tr>
+      <tr><td>北菓樓 開拓おかき 12種</td><td class="price">¥1,620</td><td>機場、狸小路</td></tr>
+      <tr><td>六花亭 福レ餅（神宮限定串糰子）</td><td class="price">¥110/支</td><td>北海道神宮境內限定！</td></tr>
+    </table></div>
+  </div>
+  <div class="section">
+    <div class="section-title">🧴 藥妝單人價格參考</div>
+    <div class="table-wrap"><table class="rt">
+      <tr><th>商品</th><th>單人參考價</th><th>建議購買點</th></tr>
+      <tr><td>救心（30粒）</td><td class="price">¥2,500〜</td><td>松本清、KoKuMiN</td></tr>
+      <tr><td>小花眼藥水</td><td class="price">¥511〜</td><td class="best">SUNDRUG 最便宜</td></tr>
+      <tr><td>花王蒸氣眼罩 12入（めぐリズム）</td><td class="price">¥1,078</td><td>各藥妝店</td></tr>
+      <tr><td>MINON 氨基酸化妝水</td><td class="price">¥1,980〜</td><td>SUNDRUG、機場</td></tr>
+      <tr><td>北海道馬油（保濕霜）</td><td class="price">¥1,200〜</td><td>各藥妝店</td></tr>
+      <tr><td>Clean Dental 牙膏</td><td class="price">¥550〜</td><td>各藥妝店</td></tr>
+      <tr><td>撒隆巴斯（40片）</td><td class="price">¥1,200〜</td><td>各藥妝店</td></tr>
+    </table></div>
+  </div>
+  <div class="section">
+    <div class="section-title">📍 各地點最佳採買</div>
+    <div class="table-wrap"><table class="rt">
+      <tr><th>地點</th><th>最適合買什麼</th></tr>
+      <tr><td>新千歲機場（回程）</td><td>六花亭、LeTAO、北菓樓、薯條三兄弟、Royce'（直接帶上飛機！）</td></tr>
+      <tr><td>狸小路商店街</td><td>藥妝最多最齊，MEGA 唐吉訶德深夜也開</td></tr>
+      <tr><td>宮之澤 SEIYU</td><td>零食、飲料比藥妝店便宜 20-30%！</td></tr>
+      <tr><td>富田農場</td><td>薰衣草精油、香皂、乾燥花</td></tr>
+      <tr><td>小樽堺町通</td><td>LeTAO 現做蛋糕、玻璃工藝品</td></tr>
+      <tr><td>北海道神宮境內</td><td>六花亭福レ餅（唯一購買地！）、御朱印</td></tr>
+    </table></div>
   </div>
 </div>
 
 <script>
-function showTab(id){
+function showTab(id,btn){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  event.target.classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  btn.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
 }
-
-function speak(text){
-  if(!window.speechSynthesis){alert('此瀏覽器不支援語音功能');return;}
+function speak(text,btn){
+  if(!window.speechSynthesis){alert('請用 Chrome 或 Safari');return;}
   window.speechSynthesis.cancel();
+  document.querySelectorAll('.speak-btn').forEach(b=>{b.classList.remove('playing');b.textContent='🔊';});
   const u=new SpeechSynthesisUtterance(text);
-  u.lang='ja-JP';
-  u.rate=0.85;
-  u.pitch=1;
-  const voices=speechSynthesis.getVoices();
-  const jp=voices.find(v=>v.lang==='ja-JP')||voices.find(v=>v.lang.startsWith('ja'));
+  u.lang='ja-JP';u.rate=0.82;u.pitch=1;
+  const v=speechSynthesis.getVoices();
+  const jp=v.find(x=>x.lang==='ja-JP')||v.find(x=>x.lang.startsWith('ja'));
   if(jp)u.voice=jp;
+  if(btn){btn.classList.add('playing');btn.textContent='▶';}
+  u.onend=u.onerror=()=>{if(btn){btn.classList.remove('playing');btn.textContent='🔊';}};
   speechSynthesis.speak(u);
 }
-
-if(speechSynthesis.onvoiceschanged!==undefined){
-  speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
-}
+if(speechSynthesis.onvoiceschanged!==undefined)speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
 </script>
+</body>
+</html>
